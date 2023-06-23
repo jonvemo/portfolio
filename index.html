@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfoil</title>
+    <svg class="icons">
+        <!-- LOGOS -->
+        <defs>
+            <symbol id="logo" viewBox="0 0 24 24">
+            
+            </symbol>
+        </defs>
+        <!-- GENERIC ICONS -->
+        <defs>
+            <symbol id="house" viewBox="0 0 24 24">
+            
+            </symbol>
+            <symbol id="skip" viewBox="0 0 24 24">
+            
+            </symbol>
+            <symbol id="file" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="mail" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="caret__up" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="cartet__down" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="caret__left" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="caret__right" viewBox="0 0 24 24">
+                
+            </symbol>
+        </defs>
+        <!-- BRANDS -->
+        <defs>
+            <symbol id="github" viewBox="0 0 24 24">
+            
+            </symbol>
+            <symbol id="linkedin" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="twitter" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="facebook" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="instagram" viewBox="0 0 24 24">
+                
+            </symbol>
+            <symbol id="youtube" viewBox="0 0 24 24">
+                
+            </symbol>
+        </defs>
+    </svg>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navegation">
+            <a aria-label="Home" href="index.html" class="navegation__link btn btn__large">
+                <svg width="1.5rem" height="1.5rem">
+                    <use href="#house"></use>
+                </svg>
+                <span class="navegation__span">Home</span>
+            </a>
+            <a aria-label="Skip Navegation" href="#home" class="navegation__link btn btn__large">
+                <svg width="1.5rem" height="1.5rem">
+                    <use href="#skip"></use>
+                </svg>
+                <span class="navegation__span">Skip Navegation</span>
+            </a>
+            <a aria-label="Projects" href="projects.html" class="navegation__link btn btn__large">
+                <svg width="1.5rem" height="1.5rem">
+                    <use href="#file"></use>
+                </svg>
+                <span class="navegation__span">Projects</span>
+            </a>
+            <a aria-label="Contact" href="contact.html" class="navegation__link btn btn__large">
+                <svg width="1.5rem" height="1.5rem">
+                    <use href="#mail"></use>
+                </svg>
+                <span class="navegation__span">Contact</span>
+            </a>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="module home">
+            <div class="profile">
+                <svg class="profile__img" width="1.5rem" height="1.5rem" title="Avatar">
+                    <use href="#logo"></use>
+                </svg>
+                <div class="profile__info">
+                    <h1 class="profile__title">John Verdugo</h1>
+                    <p class="profile__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vel quos eligendi at animi eum deleniti molestiae vero non, illum porro inventore aliquid itaque commodi, amet, nostrum ipsam? Aliquam, earum.</p>
+                </div>
+
+                <div class="social">
+                    <template id="template__social">
+                        <a aria-label="" href="" class="social__link btn  btn__small">
+                            <svg width="1.5rem" height="1.5rem">
+                                <use href=""></use>
+                            </svg>
+                            <span class="social__span"></span>
+                        </a>
+                    </template>
+                    
+                    <div class="social hidden" id="toggle__social">
+                        <template id="template__social__plus">
+                            <a aria-label="" href="" class="social__link btn  btn__small">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use href=""></use>
+                                </svg>
+                                <span class="social__span"></span>
+                            </a>
+                        </template>
+                    </div>
+
+                    <button aria-label="Skip Navegation" class="social__btn btn  btn__small" id="toggle__social__btn">
+                        <svg width="1.5rem" height="1.5rem">
+                            <use href="#caret__right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stats__module">
+                    <h2 class="stats__title">Data</h2>
+                    <table class="table">
+                        <tbody class="table__body">
+                            <tr class="table__row">
+                                <td class="table__cell">Age</td>
+                                <td class="table__cell">20</td>
+                            </tr>
+                            <tr class="table__row">
+                                <td class="table__cell">Nacionality</td>
+                                <td class="table__cell">Colombia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="stats__module">
+                    <h2 class="stats__title">Skills</h2>
+                    <ul class="list">
+                        <li class="list__item">UX/UI</li>
+                        <li class="list__item">Web Accesibility</li>
+                        <li class="list__item">Responsive</li>
+                        <li class="list__item">Figma</li>
+
+                        <li class="list__item">SEO</li>
+
+                        <li class="list__item">JavaScript</li>
+                        <li class="list__item">TypeScript</li>
+                        <li class="list__item">React</li>
+
+                        <li class="list__item">Blogger</li>
+
+                        <!-- Studying 
+                            <li class="list__item">NodeJs</li>
+                            <li class="list__item">Rust</li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./assets/js/index.js"></script>
+</body>
+</html>
