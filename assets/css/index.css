@@ -1,16 +1,8 @@
 
-@import "https://jonvemo.com/assets/css/colors.css";
-@import "https://jonvemo.com/assets/css//typography.css";
-@import "https://jonvemo.com/assets/css//normalize.css";
-@import "https://jonvemo.com/assets/css//headings.css";
-@import "https://jonvemo.com/assets/css//links.css";
-@import "https://jonvemo.com/assets/css//btns.css";
-@import "https://jonvemo.com/assets/css//style.css";
-
-/* @import "./assets/css/colors.css";
-@import "./assets/css/typography.css";
-@import "./assets/css//normalize.css";
-@import "./assets/css//headings.css";
-@import "./assets/css//links.css";
-@import "./assets/css//btns.css";
-@import "./assets/css//style.css"; */
+@import "/assets/css/colors.css";
+@import "/assets/css/typography.css";
+@import "/assets/css/normalize.css";
+@import "/assets/css/headings.css";
+@import "/assets/css/links.css";
+@import "/assets/css/btns.css";
+@import "/assets/css/style.css";

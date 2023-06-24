@@ -18,3 +18,12 @@
     &.star:is(:hover,:active,:focus) {background-color: #ffd70020;}
     &.star:is(:hover,:active,:focus) svg {fill: gold;}
 }
+
+#skip__navegation {
+    position: absolute;
+    top: -1000px;
+
+    &:is(:active,:focus,:focus-visible) {
+        position: unset;
+    }
+}

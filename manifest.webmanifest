@@ -11,10 +11,16 @@
     "lang": "es",
     "icons": [
       {
-        "src": "./assets/img/favicon.png",
+        "src": "/assets/img/favicon.png",
         "type": "image/png",
         "sizes": "1024x1024",
-        "purpose": "any maskable"
+        "purpose": "any"
+      },
+      {
+        "src": "/assets/img/favicon.png",
+        "type": "image/png",
+        "sizes": "1024x1024",
+        "purpose": "maskable"
       }
     ]
 }

@@ -24,10 +24,13 @@ body {
 .navegator__link {
     place-content: center;
     min-width: 48px;
-    background-color: var(--bg);
     border-radius: 8px 8px 0 0;
-
-    &.btn__large {padding: 8px 16px;}
+    background-image: var(--primary-gradient);
+    border: 1px solid #FFFFFF20;
+    
+    &.btn__large {padding: 0;}
+    &.btn__large:is(:active,:focus,:focus-visible) {padding: 8px 16px; z-index: 1;}
+    &.btn__large:is(:hover,:active,:focus,:focus-visible) svg {fill: var(--main-color);}
     &:is(:active,:focus,:focus-visible) .navegator__span{
         display: block;
     }
@@ -58,6 +61,12 @@ body {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.social {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 8px;
 }
 
 @media (min-width: 1000px) {
