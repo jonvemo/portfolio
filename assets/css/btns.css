@@ -1,8 +1,8 @@
 .btn {
-    background-color: var(--main-bg); border-radius: 32px; border: none;
+    background-color: var(--main-bg); background: var(--secundary-gradient); border-radius: 32px; border: var(--border);
     
-    &:is(:hover,:active,:focus):not(:disabled) {background-color: var(--accent); color: var(--color);}
-    &:is(:hover,:active,:focus):not(:disabled) svg {fill: var(--color);}
+    &:is(:hover,:active,:focus):not(:disabled) {background-color: var(--primary-gradient); color: var(--main-color);}
+    &:is(:hover,:active,:focus):not(:disabled) svg {fill: var(--main-color);}
     &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
     &:disabled {filter: grayscale(1);}
 

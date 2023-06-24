@@ -26,7 +26,7 @@ body {
     min-width: 48px;
     border-radius: 8px 8px 0 0;
     background-image: var(--primary-gradient);
-    border: 1px solid #FFFFFF20;
+    border: var(--border);
     
     &.btn__large {padding: 0;}
     &.btn__large:is(:active,:focus,:focus-visible) {padding: 8px 16px; z-index: 1;}
@@ -43,7 +43,7 @@ body {
 .module {
     padding: 32px;
     background-image: var(--secundary-gradient);
-    border: 1px solid #FFFFFF20;
+    border: var(--border);
 }
 .home {
     display: grid;
