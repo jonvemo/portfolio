@@ -22,6 +22,7 @@ export const SOCIALMEDIA = () => {
                 DOMAIN_NAME = LINK.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n.]+)/im)[1]
     
             template.querySelector('a').href = LINK
+            template.querySelector('a').setAttribute('aria-label', `${DOMAIN_NAME}'s Profile`)
             template.querySelector('use').setAttribute('href', `#${DOMAIN_NAME}`)
     
             let $clone = document.importNode(template, true)
