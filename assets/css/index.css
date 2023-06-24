@@ -1,3 +1,4 @@
+/*
 @import "https://jonvemo.com/assets/css/colors.css";
 @import "https://jonvemo.com/assets/css//typography.css";
 @import "https://jonvemo.com/assets/css//normalize.css";
@@ -5,3 +6,11 @@
 @import "https://jonvemo.com/assets/css//links.css";
 @import "https://jonvemo.com/assets/css//btns.css";
 @import "https://jonvemo.com/assets/css//style.css";
+*/
+@import "http://127.0.0.1:5500/assets/css/colors.css";
+@import "http://127.0.0.1:5500/assets/css/typography.css";
+@import "http://127.0.0.1:5500/assets/css//normalize.css";
+@import "http://127.0.0.1:5500/assets/css//headings.css";
+@import "http://127.0.0.1:5500/assets/css//links.css";
+@import "http://127.0.0.1:5500/assets/css//btns.css";
+@import "http://127.0.0.1:5500/assets/css//style.css";
