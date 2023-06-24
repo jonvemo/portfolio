@@ -1,0 +1,12 @@
+:root {
+    --main-bg: #f0f2f5; --bg: #fff; --transparent-bg: #ffffff80;
+    --main-color: #333; --color: #c6d0ec;  --same-color: #333;
+    --accent: #87d6e3; --link: #1e5c91;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg: #1c202f; --bg: #11141d; --transparent-bg: #11141d80; 
+        --main-color: #c6d0ec; --color: #333;
+        --accent: #879ee3; --link: #3ea6ff;
+    }
+}

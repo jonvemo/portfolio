@@ -1,0 +1,93 @@
+/* Elements */
+::-webkit-scrollbar {width:8px; height:8px;} ::-webkit-scrollbar-track {margin:4px;} ::-webkit-scrollbar-thumb {background: #C5C5C5; border-radius:10px;} ::selection {background-color: var(--accent); color: var(--bg);}
+.flex {display: flex; gap: 16px;} .grid {display: grid; gap: 16px;}
+.icons {position: absolute; visibility: hidden;}
+table {border-collapse:collapse;}
+
+
+body {
+    margin: 0;
+    background-color: var(--main-bg);
+}
+
+/** Header */
+.header {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+.navegator {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.navegator__link {
+    place-content: center;
+    min-width: 48px;
+    background-color: var(--bg);
+    border-radius: 8px 8px 0 0;
+
+    &.btn__large {padding: 8px 16px;}
+    &:is(:hover,:active,:focus,:focus-visible) .navegator__span{
+        display: block;
+    }
+}
+.navegator__span {
+    display: none;
+}
+
+/** Main */
+.module {
+    padding: 32px;
+    background-color: var(--bg);
+}
+.home {
+    display: grid;
+    align-content: space-between;
+    grid-template-areas: "profile" "stats" "links";
+}
+.profile {
+    display: grid;
+    grid-template-areas: "presentation" "logo";
+}
+.profile__item:has(.profile__img) {
+    grid-area: logo;
+}
+.profile__img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 1000px) {
+    body {
+        display: grid;
+        place-content: center;
+        grid-template-areas:"header" "main";
+        min-height: 100vh;
+    }
+    .header {
+        position: unset;
+        width: 80vw;
+    }
+    .navegator {
+        justify-content: flex-end;
+    }
+    .module {
+        width: 80vw;
+        min-height: 75vh;
+        margin: 0 auto;
+        padding: 64px;
+        border-radius: 16px 0 16px 16px;
+    }
+    .home {
+        gap: 64px;
+        grid-template-areas: "profile stats" "links stats";
+        grid-template-columns: calc(80% - 16px) calc(20% - 16px);
+    }
+    .profile {
+        gap: 64px;
+        grid-template-areas: "logo presentation";
+        grid-template-columns: 250px 1fr;
+    }
+}

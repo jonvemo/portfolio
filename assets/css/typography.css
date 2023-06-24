@@ -1,0 +1,2 @@
+@import "https://fonts.cdnfonts.com/css/nunito";
+* {font:16px 'Nunito'; word-wrap:break-word; color: var(--main-color); box-sizing:border-box; scroll-behavior: smooth;}

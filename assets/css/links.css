@@ -1,0 +1,12 @@
+a {
+
+    &:is(:link,:visited) {
+        text-decoration: none; color: var(--link);
+    }
+    &:is(:hover,:active,:focus) {
+        text-decoration: underline;
+    }
+    &:focus-visible {
+        outline: 4px solid var(--main-color); outline-offset: 4px; border-radius: 8px;
+    }
+}
