@@ -1,4 +1,4 @@
-import { SOCIALMEDIA } from "./social-links";
+// import { SOCIALMEDIA } from "./social-links";
 
 if('serviceWorker' in navigator){
 	navigator.serviceWorker.register('./sw.js')
@@ -7,5 +7,5 @@ if('serviceWorker' in navigator){
 }
 
 document.addEventListener('DOMContentLoaded',ev=>{
-    SOCIALMEDIA()
+    // SOCIALMEDIA()
 })
