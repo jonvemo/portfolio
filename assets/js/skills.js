@@ -8,6 +8,7 @@ const
         'HTML',
         'CSS',
         'SEO',
+        'PWA',
     ],
     $DESING = document.getElementById('desing'),
     DESING = [

@@ -2,8 +2,6 @@ import { SKILLS } from "./skills.js";
 import { SOCIALMEDIA } from "./social-links.js";
 
 document.addEventListener('DOMContentLoaded',ev=>{
-    SKILLS()
-    SOCIALMEDIA()
 
     document.addEventListener('click',ev=>{
         const TARGET = ev.target
@@ -17,4 +15,7 @@ document.addEventListener('DOMContentLoaded',ev=>{
             CURRENT_ICON === '#caret__right' ? $BTN_USE.setAttribute('href', '#caret__left') : $BTN_USE.setAttribute('href', '#caret__right')
         }
     })
+
+    SKILLS()
+    SOCIALMEDIA()
 })
