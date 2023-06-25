@@ -1,7 +1,9 @@
-import { SKILLS } from "./skills.js";
-import { SOCIALMEDIA } from "./social-links.js";
+import { getHTML } from "/assets/js/include.js"
+import { SKILLS } from "/assets/js/skills.js"
+import { SOCIALMEDIA } from "/assets/js/social-links.js"
 
-document.addEventListener('DOMContentLoaded',ev=>{
+document.addEventListener('DOMContentLoaded', ev=>{
+    const $SECTION = document.getElementById('section')
 
     document.addEventListener('click',ev=>{
         const TARGET = ev.target
@@ -14,8 +16,23 @@ document.addEventListener('DOMContentLoaded',ev=>{
             $SOCIALMEDIA_HIDDEN.classList.toggle('hidden')
             CURRENT_ICON === '#caret__right' ? $BTN_USE.setAttribute('href', '#caret__left') : $BTN_USE.setAttribute('href', '#caret__right')
         }
+        if(TARGET.matches('.navegator__link')){
+            e.preventDefault()
+            getHTML({
+              url: e.target.href,
+              success: (html)=>$SECTION.innerHTML = html,
+              error: (err)=>$SECTION.innerHTML = `<h1>${err}</h1>`
+            })
+          }
+    })
+    getHTML({
+        url: '/page/home.html',
+        success: (html) => {
+            $SECTION.innerHTML = html
+            SKILLS()
+            SOCIALMEDIA()
+        },
+        error: (err) => $SECTION.innerHTML = `<h1>${err}</h1>`
     })
 
-    SKILLS()
-    SOCIALMEDIA()
 })

@@ -1,20 +1,21 @@
-const 
-    $SOCIALMEDIA = document.getElementById('social'),
-    $SOCIALMEDIA__HIDDEN = document.getElementById('social__hidden'),
-    LINKS = [
-        'https://linkedin.com/in/jonvemo',
-        'https://github.com/jonvemo',
-        'https://twitter.com/jonvemodev'
-    ],
-    LINKS_HIDDEN = [
-        'https://instagram.com/jonvemodev',
-        'https://facebook.com/jonvemodeveloper'
-    ], 
-    $TEMPLATE_SOCIAL = document.getElementById('template__social').content,
-    $TEMPLATE_SOCIAL_PLUS = document.getElementById('template__social__plus').content,
-    $FRAGMENT = document.createDocumentFragment()
-
 export const SOCIALMEDIA = () => {
+        
+    const 
+        $SOCIALMEDIA = document.getElementById('social'),
+        $SOCIALMEDIA__HIDDEN = document.getElementById('social__hidden'),
+        LINKS = [
+            'https://linkedin.com/in/jonvemo',
+            'https://github.com/jonvemo',
+            'https://twitter.com/jonvemodev'
+        ],
+        LINKS_HIDDEN = [
+            'https://instagram.com/jonvemodev',
+            'https://facebook.com/jonvemodeveloper'
+        ], 
+        $TEMPLATE_SOCIAL = document.getElementById('template__social').content,
+        $TEMPLATE_SOCIAL_PLUS = document.getElementById('template__social__plus').content,
+        $FRAGMENT = document.createDocumentFragment()
+
     const insertSocialLinks = (links, template, container, insertAtStart) => {
         links.forEach((el, i) => {
             const 
