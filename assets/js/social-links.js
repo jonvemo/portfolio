@@ -24,6 +24,7 @@ export const SOCIALMEDIA = () => {
             template.querySelector('a').href = LINK
             template.querySelector('a').setAttribute('aria-label', `${DOMAIN_NAME}'s Profile`)
             template.querySelector('use').setAttribute('href', `#${DOMAIN_NAME}`)
+            template.querySelector('span').textContent = `${DOMAIN_NAME}`
     
             let $clone = document.importNode(template, true)
             $FRAGMENT.appendChild($clone)

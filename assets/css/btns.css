@@ -1,5 +1,5 @@
 .btn {
-    background-color: var(--main-bg); background: var(--secundary-gradient); border-radius: 32px; border: var(--border);
+    background-color: var(--main-bg); background: var(--secundary-gradient); border-radius: 32px; border: 1px var(--border);
     
     &:is(:hover,:active,:focus):not(:disabled) {background-color: var(--primary-gradient); color: var(--main-color);}
     &:is(:hover,:active,:focus):not(:disabled) svg {fill: var(--main-color);}

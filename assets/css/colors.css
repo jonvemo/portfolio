@@ -1,10 +1,12 @@
 :root {
     --main-bg: #f0f2f5; --bg: #fff; --transparent-bg: #ffffff80;
-    --primary-gradient: linear-gradient(45deg,var(--bg),var(--main-bg));
-    --secundary-gradient: linear-gradient(45deg,var(--main-bg),var(--bg));
-    --border: 1px solid #FFFFFF20;
     --main-color: #333; --color: #c6d0ec;  --keep-color: #333;
     --accent: #87d6e3; --link: #1e5c91;
+
+    --primary-gradient: linear-gradient(45deg,var(--bg),var(--main-bg));
+    --secundary-gradient: linear-gradient(45deg,var(--main-bg),var(--bg));
+    --border: solid #ffffff20;
+    --gap: 64px;
 }
 @media (prefers-color-scheme: dark) {
     :root {
