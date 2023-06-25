@@ -235,9 +235,6 @@ body {
         background-color: initial;
         border: none;
     }
-    .header:focus-within .navegator__link {
-        border: initial;
-    }
     .header:focus-within {
         padding: 0;
     }
