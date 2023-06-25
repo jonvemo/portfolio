@@ -16,6 +16,10 @@ body {
     bottom: 0;
     width: 100vw;
 }
+.title {
+    font-weight: bold;
+    color: var(--accent);
+}
 .navegator {
     display: flex;
     flex-flow: row wrap;
