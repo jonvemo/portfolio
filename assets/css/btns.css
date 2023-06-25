@@ -21,7 +21,6 @@
 
 #skip__navegation {
     position: absolute;
-    top: -1000px;
 
     &:is(:active,:focus,:focus-visible) {
         position: sticky;

@@ -14,7 +14,8 @@
     <meta name="twitter:creator" content="@jonvemodev" />
     <meta name="twitter:image" property="og:image" content="/assets/img/banner.png" />
 
-    <meta name="theme-color" content="#87d6e3">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar" content="#11141d">
     <link rel="author" type="text/plain" href="humans.txt">
     <link rel="manifest" href="manifest.webmanifest">
     
@@ -43,7 +44,7 @@
         }      
         </script>
 </head>
-<body>
+<body id="body">
     <svg class="icons">
         <!-- LOGOS -->
         <defs>
@@ -220,83 +221,41 @@
                 <div class="skills__item">
 
                     <h2 class="skills__title">Frontend</h2>
-                    <ul class="list list__inline skills__list">
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#javascript"></use>
-                            </svg>
-                            <span class="list__span">JavaScript</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#typescript"></use>
-                            </svg>
-                            <span class="list__span">TyScript</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#react"></use>
-                            </svg>
-                            <span class="list__span">React</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#git"></use>
-                            </svg>
-                            <span class="list__span">Git</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#html"></use>
-                            </svg>
-                            <span class="list__span">HTML5</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#css"></use>
-                            </svg>
-                            <span class="list__span">CSS3</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#seo"></use>
-                            </svg>
-                            <span class="list__span">SEO</span>
-                        </li>
+                    <ul class="list list__inline skills__list" id="frontend">
+                        <template id="template__frontend">
+                            <li class="list__item">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use></use>
+                                </svg>
+                                <span class="list__span"></span>
+                            </li>
+                        </template>
                     </ul>
 
                     <h2 class="skills__title">Desing</h2>
-                    <ul class="list list__inline skills__list">
+                    <ul class="list list__inline skills__list" id="desing">
                         <li class="list__item">UX</li>
                         <li class="list__item">UI</li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#accessibility"></use>
-                            </svg>
-                            <span class="list__span">Web Accessibility</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#responsive"></use>
-                            </svg>
-                            <span class="list__span">Responsive</span>
-                        </li>
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#figma"></use>
-                            </svg>
-                            <span class="list__span">Figma</span>
-                        </li>
+                        <template id="template__desing">
+                            <li class="list__item">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use></use>
+                                </svg>
+                                <span class="list__span"></span>
+                            </li>
+                        </template>
                     </ul>
 
                     <h2 class="skills__title">Platforms</h2>
-                    <ul class="list list__inline skills__list">
-                        <li class="list__item">
-                            <svg width="1.5rem" height="1.5rem">
-                                <use href="#blogger"></use>
-                            </svg>
-                            <span class="list__span">Blogger</span>
-                        </li>
+                    <ul class="list list__inline skills__list" id="plataforms">
+                        <template id="template__plataforms">
+                            <li class="list__item">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use></use>
+                                </svg>
+                                <span class="list__span"></span>
+                            </li>
+                        </template>
                     </ul>
 
 
@@ -337,8 +296,11 @@
                 </button>
             </div>
         </section>
+        <section class="isOnOff" id="isOnOff">
+            <div class="isOnOff__content" id="isOnOff__content">test</div>
+        </section>
     </main>
-    <!-- <script defer src="/assets/js/app.js"></script> -->
+    <script defer src="/assets/js/app.js"></script>
     <script type="module" src="/assets/js/index.js"></script>
 </body>
 </html>

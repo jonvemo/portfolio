@@ -1,6 +1,8 @@
+import { SKILLS } from "./skills.js";
 import { SOCIALMEDIA } from "./social-links.js";
 
 document.addEventListener('DOMContentLoaded',ev=>{
+    SKILLS()
     SOCIALMEDIA()
 
     document.addEventListener('click',ev=>{
