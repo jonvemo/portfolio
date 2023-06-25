@@ -14,6 +14,16 @@ tr:nth-child(even) {background-color: var(--bg);}
 td:first-child {font-weight: bold;}
 td {flex: 1;}
 
+/* LISTS */
+.list__inline {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
 
 body {
     margin: 0;
@@ -65,7 +75,7 @@ body {
 .home {
     display: grid;
     align-content: space-between;
-    grid-template-areas: "profile" "stats" "links";
+    grid-template-areas: "profile" "stats" "skills" "links";
 }
 
 /** PROFILE */
@@ -85,6 +95,7 @@ body {
 
 /** STATS */
 .stats {
+    grid-area: stats;
     display: flex;
     flex-flow: column;
     gap: var(--gap);
@@ -124,6 +135,37 @@ body {
     }
 }
 
+/** SKILLS */
+.skills__item {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+}
+.skills__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+.skills__list .list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-width: 56px;
+    padding: 16px;
+    background-color: var(--bg);
+    border-radius: 8px;
+    border: 1px var(--border);
+    font-weight: bold;
+}
+.list__span {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
 @media (min-width: 1000px) {
     body {
         display: grid;
@@ -146,7 +188,7 @@ body {
         border-radius: 16px 0 16px 16px;
     }
     .home {
-        grid-template-areas: "profile stats" "links stats";
+        grid-template-areas: "profile stats" "skills stats" "links stats";
         grid-template-columns: calc(80% - 16px) calc(20% - 16px);
     }
     .profile {
