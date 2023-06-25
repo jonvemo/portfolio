@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', ev=>{
             CURRENT_ICON === '#caret__right' ? $BTN_USE.setAttribute('href', '#caret__left') : $BTN_USE.setAttribute('href', '#caret__right')
         }
         if(TARGET.matches('.navegator__link, .navegator__link *')){
-            e.preventDefault()
+            ev.preventDefault()
             getHTML({
-              url: e.target.href,
+              url: TARGET.href,
               success: (html)=>$SECTION.innerHTML = html,
               error: (err)=>$SECTION.innerHTML = `<h1>${err}</h1>`
             })
