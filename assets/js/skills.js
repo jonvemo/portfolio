@@ -1,5 +1,4 @@
-export const SKILLS = () => {
-    const 
+const 
     $FRONTEND = document.getElementById('frontend'),
     FRONTEND = [
         'JavaScript',
@@ -25,6 +24,8 @@ export const SKILLS = () => {
     $TEMPLATE_DESIGN = document.getElementById('template__design').content,
     $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
     $FRAGMENT = document.createDocumentFragment()
+    
+export const SKILLS = () => {
     const insertSkills = (links, template, container) => {
         links.forEach((el, i) => {
             const 
