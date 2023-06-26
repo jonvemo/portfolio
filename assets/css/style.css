@@ -221,6 +221,11 @@ input[type="text"],input[type="email"],textarea {
         &:valid {outline: 4px solid green;}
     }
     &::placeholder {color: var(--accent); font-weight: bold;}
+} 
+:is(textarea,input,select):autofill {
+    border: 1px var(--border);
+    -webkit-text-fill-color: var(--main-color);
+    box-shadow: 0 0 0 100px var(--bg) inset;
 }
 textarea {resize: none;}
 
@@ -228,14 +233,16 @@ textarea {resize: none;}
     display: flex; flex-direction: column; gap: 16px;
 }
 .contact__item {
-    display: flex; flex-direction: column; gap: 8px; flex: 1;
+    display: flex; flex-direction: column; gap: 8px; flex: 1 0 100px;
 
     &.inline {flex-flow: row wrap; align-items: center;}
+    &.inline:has([type="text"]) {flex: 1 0 100px;}
 }
 .contact__item label {
     display: flex;
     gap: 8px;
     align-items: center;
+    justify-content: space-between;
 }
 
 
