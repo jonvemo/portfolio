@@ -1,4 +1,6 @@
-const 
+export const SOCIALMEDIA = () => {
+        
+    const 
         $SOCIALMEDIA = document.getElementById('social'),
         $SOCIALMEDIA__HIDDEN = document.getElementById('social__hidden'),
         LINKS = [
@@ -13,7 +15,7 @@ const
         $TEMPLATE_SOCIAL = document.getElementById('template__social').content,
         $TEMPLATE_SOCIAL_PLUS = document.getElementById('template__social__plus').content,
         $FRAGMENT = document.createDocumentFragment()
-export const SOCIALMEDIA = () => {
+
     const insertSocialLinks = (links, template, container, insertAtStart) => {
         links.forEach((el, i) => {
             const 
