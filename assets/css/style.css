@@ -81,6 +81,7 @@ body {
 
 /** MODULES */
 .module {
+    min-height: 100vh;
     padding: 32px;
     background-image: var(--secundary-gradient);
     border: 1px var(--border);
