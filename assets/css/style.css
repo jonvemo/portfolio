@@ -235,8 +235,7 @@ textarea {resize: none;}
 .contact__item {
     display: flex; flex-direction: column; gap: 8px;
 
-    &.inline {flex-flow: row wrap; align-items: center;}
-    &.inline:has([type="text"]) {flex: 1 0 100px;}
+    &.inline {flex-flow: row wrap; align-items: center; flex: 1;}
 }
 .contact__item label {
     display: flex;
