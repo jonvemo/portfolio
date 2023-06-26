@@ -36,8 +36,9 @@ body {
 
 /** Header */
 .header {
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    width: 100%;
     background-color: var(--transparent-bg);
     backdrop-filter: blur(4px);
     border: 1px var(--border);
