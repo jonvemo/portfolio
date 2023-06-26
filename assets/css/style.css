@@ -216,7 +216,7 @@ input[type="text"],input[type="email"],textarea {
 
     &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
     &:placeholder-shown {color: var(--accent);}
-    &:placeholder-shown:focus {
+    &:not(placeholder-shown):focus {
         &:invalid {outline: 4px solid red;} 
         &:valid {outline: 4px solid green;}
     }
