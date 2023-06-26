@@ -46,7 +46,7 @@ body {
 .header:focus-within .navegator__link {
     border: 1px var(--border);
 }
-.header:focus-within {
+.header:focus-within :focus-visible {
     padding: 8px 0;
 }
 .title {
@@ -200,6 +200,7 @@ input[type="radio"],input[type="checkbox"] {
 
     &:checked {
         background-color: var(--accent);
+        border: 1px var(--border);
     }
     &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
 }
@@ -217,7 +218,6 @@ input[type="text"],input[type="email"],textarea {
 }
 textarea {resize: none;}
 
-
 .contact__form {
     display: flex; flex-direction: column; gap: 16px;
 }
@@ -226,7 +226,10 @@ textarea {resize: none;}
 
     &.inline {flex-flow: row wrap; align-items: center;}
 }
-
+.contact__item label {
+    display: flex;
+    gap: 8px;
+}
 
 
 
@@ -289,7 +292,7 @@ textarea {resize: none;}
         background-color: initial;
         border: none;
     }
-    .header:focus-within {
+    .header:focus-within :focus-visible {
         padding: 0;
     }
     .navegator {
