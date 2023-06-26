@@ -110,6 +110,10 @@ body {
     width: 100%;
     height: auto;
 }
+.profile__paragraph {
+    white-space: pre-line;
+    line-height: 28px;
+}
 
 /** STATS */
 .stats {
