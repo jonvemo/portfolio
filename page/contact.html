@@ -1,70 +1,47 @@
 <section class="module contact" id="section">
-    <h1 class="title">Send me a message</h1>
-    <form class="contact__form" action="https://formsubmit.co/rettouseisama@gmail.com" method="post">
-        <h2 class="subtitle">Message Type</h2>
-
+    <h1 class="title">Send me a Message</h1>
+    <form class="contact__form" action="https://formsubmit.co/07aef7b9e63557ef35573b9b2fab6a29 " method="post">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Message from jonvemo.com">
+        
         <div class="contact__item inline">
-            <label for="type_1">Comentario</label>
-            <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_0" name="feedbackType" value="Comments"/>
+            <label for="form__type__1">For Work</label>
+            <input id="form__type__1" name="type" type="radio" aria-describedby="form__type" value="For Work"/>
 
-            <label for="">Sugerencia</label>
-            <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_1" name="feedbackType" value="Suggestions"/>
+            <label for="form__type__2">To Ask</label>
+            <input id="form__type__2" name="type" type="radio" aria-describedby="form__type" value="To Ask"/>
 
-            <label for="input_3_2" id="label_input_3_2">Pregunta</label>
-            <input type="radio" aria-describedby="label_3" class="form-radio" id="input_3_2" name="feedbackType" value="Questions"/>
+            <label for="form__type__3">Comment</label>
+            <input id="form__type__3" name="type" type="radio" aria-describedby="form__type" value="Comment"/>
         </div>
-          
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="contact__box">
-          <label for="message">Escriba su mensaje<svg height='1em' width='1em'><use href='#asterisk'/></svg></label>
-          <textarea id="message" name="message" cols="80" rows="8" minLength="16" required="" placeholder="&#191;Qué tal?" title="El mensaje debe tener al menos 16 caracteres"></textarea>
+        <div class="contact__item">
+            <label for="message">
+                Message
+                <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+            </label>
+            <textarea id="message" name="message" required cols="80" rows="8" minLength="16" placeholder="Type your Message" title="The message must have at least 16 characters"></textarea>
         </div>
       
-          <div class="contact__box"> 
-          <label for="name">Nombre<svg height='1em' width='1em'><use href='#asterisk'/></svg></label> 
-          <input id="name" type="text" name="name" size="10" value="" required="" placeholder="Inserte su nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Nombre sólo acepta letras y espacios en blanco"/>
-        </div>
-            
-        <div class="contact__box"> 
-          <label for="lastname" aria-hidden="false">Apellido<svg height='1em' width='1em'><use href='#asterisk'/></svg></label>
-          <input type="text" id="lastname" name="lastname" size="15" value="" required="" placeholder="Inserte su apellido" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Apellido sólo acepta letras y espacios en blanco"/>
+        <div class="contact__item">
+            <label for="name">
+                Name
+                <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+            </label>
+            <input id="name" name="name" type="text" required size="10" placeholder="Type your Name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Name only accept letters and spaces"/>
         </div>
       
-          <div class="contact__box"> 
-          <label for="input_6">Correo<svg height='1em' width='1em'><use href='#asterisk'/></svg></label>
-            <input type="email" id="email" name="email" size="310" value="" placeholder="example@example.com" required="" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$" title="Inserte un correo válido"/>
+        <div class="contact__item"> 
+            <label for="mail">
+                Email
+                <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+            </label>
+            <input id="email" name="email" type="email" required size="310" placeholder="Example@example.com" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$" title="Type a Valid Email"/>
         </div>
      
-          <button type="submit">Enviar</button>
+        <button type="submit" class="btn btn__large">
+            <svg height='1rem' width='1rem'><use href='#send'/></svg>
+            Send
+        </button>
     </form>
 </section>
