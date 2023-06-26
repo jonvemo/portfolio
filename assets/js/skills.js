@@ -37,7 +37,7 @@ export const SKILLS = () => {
             $FRAGMENT.appendChild($clone)
         })
         
-        container.appendChild($FRAGMENT)
+        container.replaceChildren($FRAGMENT)
     }
     
     insertSkills(FRONTEND, $TEMPLATE_FRONTEND, $FRONTEND)
