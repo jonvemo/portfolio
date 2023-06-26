@@ -167,7 +167,128 @@
             </a>
         </nav>
     </header>
-    <main class="main" id="main"></main>
+    <main class="main" id="main">
+        <section class="module home" id="section">
+            <div class="profile">
+                <div class="profile__item">
+                    <svg class="profile__img" width="512" height="512" title="Avatar">
+                        <use href="#logo"></use>
+                    </svg>
+                </div>
+                <div class="profile__item profile__info">
+                    <h1 class="profile__title title">John Verdugo</h1>
+                    <div class="profile__description">
+                        <p class="profile__paragraph">
+                            Hi, I'm Jhon
+                            A Frontend Developer from Colombia, nice to meet you!
+                            Freelancer at your disposition, I can work to you in differents types of project
+                            I like minimalist designs, animals, anime and asian culture
+                        </p>
+                    </div>
+                </div>
+                <div class="social" id="social">
+                    <template id="template__social">
+                        <a target="_blank" class="social__link btn  btn__large">
+                            <svg width="1.5rem" height="1.5rem">
+                                <use></use>
+                            </svg>
+                            <span class="social__span"></span>
+                        </a>
+                    </template>
+                    
+                    <div class="social hidden" id="social__hidden">
+                        <template id="template__social__plus">
+                            <a aria-label="" href="" class="social__link btn  btn__large">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use href=""></use>
+                                </svg>
+                                <span class="social__span"></span>
+                            </a>
+                        </template>
+                    </div>
+                
+                    <button aria-label="Skip Navegation" class="social__btn btn  btn__small" id="toggle__social__btn">
+                        <svg width="1.5rem" height="1.5rem">
+                            <use href="#caret__right" id="change__icon"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stats__item">
+                    <table class="table">
+                        <caption class="table__capption stats__title">
+                            Data
+                            <svg width="1.5rem" height="1.5rem">
+                                <use href="#user"></use>
+                            </svg>
+                        </caption>
+                        <tbody class="table__body">
+                            <tr class="table__row">
+                                <td class="table__cell">Age</td>
+                                <td class="table__cell">20</td>
+                            </tr>
+                            <tr class="table__row">
+                                <td class="table__cell">Nacionality</td>
+                                <td class="table__cell">Colombia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="skills">
+                <div class="skills__item">
+        
+                    <h2 class="skills__title">Frontend</h2>
+                    <ul class="list list__inline skills__list" id="frontend">
+                        <template id="template__frontend">
+                            <li class="list__item">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use></use>
+                                </svg>
+                                <span class="list__span"></span>
+                            </li>
+                        </template>
+                    </ul>
+        
+                    <h2 class="skills__title">Design</h2>
+                    <ul class="list list__inline skills__list" id="design">
+                        <li class="list__item">UX</li>
+                        <li class="list__item">UI</li>
+                        <template id="template__design">
+                            <li class="list__item">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use></use>
+                                </svg>
+                                <span class="list__span"></span>
+                            </li>
+                        </template>
+                    </ul>
+        
+                    <h2 class="skills__title">Platforms</h2>
+                    <ul class="list list__inline skills__list" id="plataforms">
+                        <template id="template__plataforms">
+                            <li class="list__item">
+                                <svg width="1.5rem" height="1.5rem">
+                                    <use></use>
+                                </svg>
+                                <span class="list__span"></span>
+                            </li>
+                        </template>
+                    </ul>
+        
+        
+                    <!-- Studying 
+                    <h2 class="skills__title">Platfo$BTN__TOGGLE = document.getElementById('toggle__social__btn')rms</h2>
+                    <ul class="list list__inline skills__backend">
+                        <li class="list__item">NodeJs</li>
+                        <li class="list__item">Rust</li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+        </section>
+    </main>
     <script defer src="/assets/js/app.js"></script>
     <script type="module" src="/assets/js/index.js"></script>
 </body>

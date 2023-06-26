@@ -33,14 +33,5 @@ document.addEventListener('DOMContentLoaded', ev=>{
             })
         } 
     })
-    getHTML({
-        url: '/page/home.html',
-        success: (html) => {
-            $MAIN.innerHTML = html
-            SKILLS()
-            SOCIALMEDIA()
-        },
-        error: (err) => $MAIN.innerHTML = `<h1>${err}</h1>`
-    })
 
 })
