@@ -266,11 +266,12 @@ body {
         border-radius: 16px 0 16px 16px;
     }
     .home {
-        grid-template-areas: "profile stats" "skills stats" "links stats";
+        grid-template-areas: "profile stats" "skills stats";
         grid-template-columns: calc(80% - 16px) calc(20% - 16px);
     }
     .profile {
-        grid-template-areas: "logo presentation";
+        gap: 0 var(--gap);
+        grid-template-areas: "logo presentation" "logo links";
         grid-template-columns: 250px 1fr;
     }
 }
