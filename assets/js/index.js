@@ -16,14 +16,26 @@ document.addEventListener('DOMContentLoaded', ev=>{
             $SOCIALMEDIA_HIDDEN.classList.toggle('hidden')
             CURRENT_ICON === '#caret__right' ? $BTN_USE.setAttribute('href', '#caret__left') : $BTN_USE.setAttribute('href', '#caret__right')
         }
-        if(TARGET.matches('.navegator__link, .navegator__link *')){
+        if(TARGET.matches('.navegator__link, .navegator__link *')) {
             ev.preventDefault()
+        
+            let url = TARGET.href
+            TARGET.matches('.navegator__link *') ? url = TARGET.parentNode.href : url = TARGET.href
+        
             getHTML({
-              url: TARGET.href,
-              success: (html)=>$SECTION.innerHTML = html,
-              error: (err)=>$SECTION.innerHTML = `<h1>${err}</h1>`
+                url: url,
+                success: (html) => {
+                    $SECTION.innerHTML = html;
+                    if (url === '/page/home.html') {
+                        SKILLS()
+                        SOCIALMEDIA()
+                    }
+                },
+                error: (err) => {
+                    $SECTION.innerHTML = `<h1>${err}</h1>`
+                }
             })
-          }
+        }    
     })
     getHTML({
         url: '/page/home.html',
