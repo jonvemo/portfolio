@@ -3,7 +3,7 @@ import { SKILLS } from "/assets/js/skills.js"
 import { SOCIALMEDIA } from "/assets/js/social-links.js"
 
 document.addEventListener('DOMContentLoaded', ev=>{
-    const $SECTION = document.getElementById('section')
+    const $MAIN = document.getElementById('main')
 
     document.addEventListener('click',ev=>{
         const TARGET = ev.target
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', ev=>{
             getHTML({
                 url: url,
                 success: (html) => {
-                    $SECTION.innerHTML = html
+                    $MAIN.innerHTML = html
                 },
                 error: (err) => {
-                    $SECTION.innerHTML = `<h1>${err}</h1>`
+                    $MAIN.innerHTML = `<h1>${err}</h1>`
                 }
             })
         } 
@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', ev=>{
     getHTML({
         url: '/page/home.html',
         success: (html) => {
-            $SECTION.innerHTML = html
+            $MAIN.innerHTML = html
             SKILLS()
             SOCIALMEDIA()
         },
-        error: (err) => $SECTION.innerHTML = `<h1>${err}</h1>`
+        error: (err) => $MAIN.innerHTML = `<h1>${err}</h1>`
     })
 
 })
