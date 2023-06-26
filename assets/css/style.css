@@ -113,6 +113,7 @@ body {
 .profile__paragraph {
     white-space: pre-line;
     line-height: 28px;
+    margin: 0 0 1em 0;
 }
 
 /** STATS */
