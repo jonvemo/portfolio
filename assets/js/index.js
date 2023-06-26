@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', ev=>{
     getHTML({
         url: '/page/home.html',
         success: (html) => {
-            $SECTION.innerHTML = html
+            $MAIN.innerHTML = html
             SKILLS()
             SOCIALMEDIA()
         },
-        error: (err) => $SECTION.innerHTML = `<h1>${err}</h1>`
+        error: (err) => $MAIN.innerHTML = `<h1>${err}</h1>`
     })
 
 })
