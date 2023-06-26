@@ -222,7 +222,7 @@ textarea {resize: none;}
     display: flex; flex-direction: column; gap: 16px;
 }
 .contact__item {
-    display: flex; flex-direction: column; gap: 8px;
+    display: flex; flex-direction: column; gap: 8px; flex: 1;
 
     &.inline {flex-flow: row wrap; align-items: center;}
 }

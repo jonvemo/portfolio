@@ -18,25 +18,27 @@
         <div class="contact__item">
             <label for="message">
                 Message
-                <svg height='1.5rem' width='1.5rem'><use href='#asterisk'/></svg>
+                <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
             </label>
             <textarea id="message" name="message" required cols="80" rows="8" minLength="16" placeholder="Type your Message" title="The message must have at least 16 characters"></textarea>
         </div>
       
-        <div class="contact__item">
-            <label for="name">
-                Name
-                <svg height='1.5rem' width='1.5rem'><use href='#asterisk'/></svg>
-            </label>
-            <input id="name" name="name" type="text" required size="10" placeholder="Type your Name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Name only accept letters and spaces"/>
-        </div>
-      
-        <div class="contact__item"> 
-            <label for="mail">
-                Email
-                <svg height='1.5rem' width='1.5rem'><use href='#asterisk'/></svg>
-            </label>
-            <input id="email" name="email" type="email" required size="310" placeholder="Example@example.com" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$" title="Type a Valid Email"/>
+        <div class="contact__item inline">
+            <div class="contact__item">
+                <label for="name">
+                    Name
+                    <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+                </label>
+                <input id="name" name="name" type="text" required size="10" placeholder="Type your Name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Name only accept letters and spaces"/>
+            </div>
+          
+            <div class="contact__item"> 
+                <label for="mail">
+                    Email
+                    <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+                </label>
+                <input id="email" name="email" type="email" required size="310" placeholder="Example@example.com" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$" title="Type a Valid Email"/>
+            </div>
         </div>
      
         <button type="submit" class="btn btn__large">
