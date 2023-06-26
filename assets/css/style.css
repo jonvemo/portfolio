@@ -206,6 +206,7 @@ input[type="radio"],input[type="checkbox"] {
     }
     &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
 }
+
 input[type="text"],input[type="email"],textarea {
     width: 100%;
     padding: 8px 16px;
@@ -215,6 +216,10 @@ input[type="text"],input[type="email"],textarea {
 
     &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
     &:placeholder-shown {color: var(--accent);}
+    &:placeholder-shown:focus {
+        &:invalid {outline: 4px solid red;} 
+        &:valid {outline: 4px solid green;}
+    }
     &::placeholder {color: var(--accent); font-weight: bold;}
 }
 textarea {resize: none;}
@@ -233,11 +238,6 @@ textarea {resize: none;}
     align-items: center;
 }
 
-
-
-/* 
-.contact__item input:not(:placeholder-shown):focus:valid:not([type="submit"], [type="radio"]), textarea:not(:placeholder-shown):focus:required {outline: none; box-shadow: 1px 1px 2px .4px var(--green), inset 1px 1px 2px .4px var(--green);}
-.contact__item input:not(:placeholder-shown):focus:invalid, textarea:not(:placeholder-shown):focus:invalid {outline: none; box-shadow: 1px 1px 2px .4px var(--red), inset 1px 1px 2px .4px var(--red);}  */
 
 
 /** Online/Offline */
