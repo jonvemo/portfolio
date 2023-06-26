@@ -189,19 +189,18 @@ body {
 
 /** CONTACT */
 .contact__form {display: flex; flex-flow: column wrap; grid-gap: 1rem;}
-.contact__title {font-weight: bold; margin: 0;}
-.contact__box {display: inherit; flex-flow: row wrap; grid-gap: .5rem; align-items: center;}
-.contact__box label {display: inherit; justify-content: space-between; align-items: center; flex: 1 100%;}
-.contact__box.inline {grid-gap: 1rem;}
-.contact__box.inline * {flex: 0;}
-.contact__box.inline input {width: auto !important;}
+.contact__item {display: inherit; flex-flow: row wrap; grid-gap: .5rem; align-items: center;}
+.contact__item label {display: inherit; justify-content: space-between; align-items: center; flex: 1 100%;}
+.contact__item.inline {grid-gap: 1rem;}
+.contact__item.inline * {flex: 0;}
+.contact__item.inline input {width: auto !important;}
         /* input:required, textarea:required {
             outline: none;
             box-shadow: 1px 1px 2px .4px var(--light-blue), inset 1px 1px 2px .4px var(--light-blue);} */
-.contact__box [href*="asterisk"] {color: var(--accent);}
-.contact__box input:not(:placeholder-shown):focus:valid:not([type="submit"], [type="radio"]), textarea:not(:placeholder-shown):focus:required {outline: none; box-shadow: 1px 1px 2px .4px var(--green), inset 1px 1px 2px .4px var(--green);}
-.contact__box input:not(:placeholder-shown):focus:invalid, textarea:not(:placeholder-shown):focus:invalid {outline: none; box-shadow: 1px 1px 2px .4px var(--red), inset 1px 1px 2px .4px var(--red);} 
-.contact__box button:is(:hover,:active) {background-color: rgb(0,0,0,.1);}
+.contact__item [href*="asterisk"] {color: var(--accent);}
+.contact__item input:not(:placeholder-shown):focus:valid:not([type="submit"], [type="radio"]), textarea:not(:placeholder-shown):focus:required {outline: none; box-shadow: 1px 1px 2px .4px var(--green), inset 1px 1px 2px .4px var(--green);}
+.contact__item input:not(:placeholder-shown):focus:invalid, textarea:not(:placeholder-shown):focus:invalid {outline: none; box-shadow: 1px 1px 2px .4px var(--red), inset 1px 1px 2px .4px var(--red);} 
+.contact__item button:is(:hover,:active) {background-color: rgb(0,0,0,.1);}
 
 /** Online/Offline */
 .backOnline {

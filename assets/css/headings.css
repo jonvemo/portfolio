@@ -1,8 +1,9 @@
 h1,h2,h3,h4,h5,h6 {margin: 0;}
+
 .title {
     font-size: 2.5rem;
 }
 
-.section__title {
+.subtitle, .section__title {
     font-size: 1.5rem;   
 }
