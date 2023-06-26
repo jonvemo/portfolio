@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
                     $SECTION.innerHTML = `<h1>${err}</h1>`
                 }
             })
-        }    
+        }   
     })
     getHTML({
         url: '/page/home.html',
