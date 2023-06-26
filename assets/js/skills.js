@@ -1,5 +1,4 @@
 export const SKILLS = () => {
-    
     const 
     $FRONTEND = document.getElementById('frontend'),
     FRONTEND = [
@@ -12,8 +11,8 @@ export const SKILLS = () => {
         'SEO',
         'PWA',
     ],
-    $DESING = document.getElementById('desing'),
-    DESING = [
+    $DESIGN = document.getElementById('design'),
+    DESIGN = [
         'Accessibility',
         'Responsive',
         'Figma',
@@ -23,10 +22,9 @@ export const SKILLS = () => {
         'Blogger',
     ],
     $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
-    $TEMPLATE_DESING = document.getElementById('template__desing').content,
+    $TEMPLATE_DESIG = document.getElementById('template__design').content,
     $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
     $FRAGMENT = document.createDocumentFragment()
-
     const insertSkills = (links, template, container) => {
         links.forEach((el, i) => {
             const 
@@ -43,6 +41,6 @@ export const SKILLS = () => {
     }
     
     insertSkills(FRONTEND, $TEMPLATE_FRONTEND, $FRONTEND)
-    insertSkills(DESING, $TEMPLATE_DESING, $DESING)
+    insertSkills(DESIGN, $TEMPLATE_DESIGN, $DESIGN)
     insertSkills(PLATAFORMS, $TEMPLATE_PLATAFORMS, $PLATAFORMS)
 }
