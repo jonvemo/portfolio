@@ -1,0 +1,49 @@
+<section class="module contact" id="section">
+    <h1 class="title">Send me a Message</h1>
+    <form class="contact__form" action="https://formsubmit.co/07aef7b9e63557ef35573b9b2fab6a29 " method="post">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Message from jonvemo.com">
+        
+        <div class="contact__item inline">
+            <label for="form__type__1">For Work</label>
+            <input id="form__type__1" name="type" type="radio" aria-describedby="form__type" value="For Work"/>
+
+            <label for="form__type__2">To Ask</label>
+            <input id="form__type__2" name="type" type="radio" aria-describedby="form__type" value="To Ask"/>
+
+            <label for="form__type__3">Comment</label>
+            <input id="form__type__3" name="type" type="radio" aria-describedby="form__type" value="Comment"/>
+        </div>
+
+        <div class="contact__item">
+            <label for="message">
+                Message
+                <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+            </label>
+            <textarea id="message" name="message" required cols="80" rows="8" minLength="16" placeholder="Type your Message" title="The message must have at least 16 characters"></textarea>
+        </div>
+      
+        <div class="contact__item inline">
+            <div class="contact__item">
+                <label for="name">
+                    Name
+                    <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+                </label>
+                <input id="name" name="name" type="text" required size="10" placeholder="Type your Name" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Name only accept letters and spaces"/>
+            </div>
+          
+            <div class="contact__item"> 
+                <label for="mail">
+                    Email
+                    <svg height='1rem' width='1rem'><use href='#asterisk'/></svg>
+                </label>
+                <input id="email" name="email" type="email" required size="310" placeholder="Example@example.com" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$" title="Type a Valid Email"/>
+            </div>
+        </div>
+     
+        <button type="submit" class="btn btn__large">
+            <svg height='1.5rem' width='1.5rem'><use href='#send'/></svg>
+            Send
+        </button>
+    </form>
+</section>
