@@ -22,7 +22,7 @@ export const SKILLS = () => {
         'Blogger',
     ],
     $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
-    $TEMPLATE_DESING = document.getElementById('template__design').content,
+    $TEMPLATE_DESIGN = document.getElementById('template__design').content,
     $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
     $FRAGMENT = document.createDocumentFragment()
     const insertSkills = (links, template, container) => {
