@@ -79,12 +79,19 @@ body {
     text-transform: uppercase;
 }
 
+/** MAIN */
+#main {
+    min-height: 80vh;
+    background-image: var(--secundary-gradient);
+    border: 1px var(--border);
+    border-radius: 16px 0 16px 16px;
+}
+
 /** MODULES */
 .module {
     min-height: 100vh;
     padding: 32px;
     background-image: var(--secundary-gradient);
-    border: 1px var(--border);
     gap: var(--gap);
 }
 
