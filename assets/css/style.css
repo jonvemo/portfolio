@@ -319,8 +319,7 @@ textarea {resize: none;}
     }
     .module {
         width: 80vw;
-        min-height: initial;
-        height: 80vh;
+        min-height: 80vh;
         margin: 0 auto;
         padding: 64px;
         border-radius: 16px 0 16px 16px;
