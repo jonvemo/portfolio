@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', ev=>{
                 }
             })
         }
-        SOCIALMEDIA()
-        SKILLS()
+        
     })
-
+    SOCIALMEDIA()
+    SKILLS()
 })
