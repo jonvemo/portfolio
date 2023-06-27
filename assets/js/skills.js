@@ -8,20 +8,20 @@ export class Skills {
   
     // Método para insertar habilidades en el DOM
     insertSkills() {
-      this.skills.forEach((el, i) => {
-        const LINK = this.skills[i];
-        this.template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`);
-        this.template.querySelector('span').textContent = `${el}`;
-        let $clone = document.importNode(this.template, true);
-        this.fragment.appendChild($clone);
+      skills.forEach((el, i) => {
+        const LINK = skills[i];
+        template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`);
+        template.querySelector('span').textContent = `${el}`;
+        let $clone = document.importNode(template, true);
+        fragment.appendChild($clone);
       });
   
-      this.container.replaceChildren(this.fragment);
+      container.replaceChildren(fragment);
     }
   
     // Método para obtener una lista de habilidades
     getSkillList() {
-      return this.skills.map(skill => skill.name);
+      return skills.map(skill => skill.name);
     }
   }
   
