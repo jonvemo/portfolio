@@ -4,6 +4,7 @@ export function SKILLS() {
     .then(data => {
 
         const 
+            $FRAGMENT = document.createDocumentFragment(),
             $FRONTEND = document.getElementById('frontend'),
             $DESIGN = document.getElementById('design'),
             $PLATAFORMS = document.getElementById('plataforms')
