@@ -104,9 +104,6 @@ document.addEventListener('DOMContentLoaded', ev=>{
         }
       };
       
-      loadSkillsData('skills.json');
-      
-      
        
       loadSkillsData('/data/skills.json');
       
