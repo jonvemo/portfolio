@@ -75,8 +75,20 @@ document.addEventListener('DOMContentLoaded', ev=>{
         }
       }
       
+      const skills = new Skills('skills', 'template');
       
+      const loadSkillsData = async (url) => {
+        try {
+          const data = await skills.fetchSkillsData(url);
+          skills.renderSkills(url, 'frontend');
+          skills.renderSkills(url, 'design');
+          skills.renderSkills(url, 'platforms');
+        } catch (err) {
+          console.error(err);
+        }
+      };
       
+       
       loadSkillsData('/data/skills.json');
       
 
