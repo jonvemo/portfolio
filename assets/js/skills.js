@@ -7,6 +7,7 @@ export function SKILLS() {
         const $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content
         const $FRAGMENT = document.createDocumentFragment()
         const insertSkills = (links, template, container) => {
+            console.log(links,template,container)
             links.forEach((el, i) => {
                 const 
                     LINK = links[i]
