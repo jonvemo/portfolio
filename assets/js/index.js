@@ -20,7 +20,13 @@ document.addEventListener('DOMContentLoaded', ev=>{
             ev.preventDefault()
         
             let url
-            TARGET.matches('.navegator__request svg') ? url = TARGET.parentNode.href : url = TARGET.href
+            if(TARGET.matches('.box >* *')){
+                url = TARGET.parentNode.parentNode.href
+            } else if(TARGET.matches('.box >*')) {
+                url = TARGET.parentNode.href
+            } else {
+                url = TARGET.href
+            }
         
             getHTML(url, 
                 {
