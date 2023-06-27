@@ -1,35 +1,18 @@
 export const SKILLS = () => {
     const 
-    $FRONTEND = document.getElementById('frontend'),
-    FRONTEND = [
-        'JavaScript',
-        'TypeScript',
-        'React',
-        'Git',
-        'HTML',
-        'CSS',
-        'SEO',
-        'PWA',
-    ],
-    $DESIGN = document.getElementById('design'),
-    DESIGN = [
-        'Accessibility',
-        'Responsive',
-        'Figma',
-    ], 
-    $PLATAFORMS = document.getElementById('plataforms'),
-    PLATAFORMS = [
-        'Blogger',
-    ],
-    $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
-    $TEMPLATE_DESIGN = document.getElementById('template__design').content,
-    $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
-    $FRAGMENT = document.createDocumentFragment()
+        $FRAGMENT = document.createDocumentFragment(),
+        $FRONTEND = document.getElementById('frontend'),
+        $DESIGN = document.getElementById('design'),
+        $PLATAFORMS = document.getElementById('plataforms'),
+        $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
+        $TEMPLATE_DESIGN = document.getElementById('template__design').content,
+        $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
+        FRONTEND = ['JavaScript','TypeScript','React','Git','HTML','CSS','SEO','PWA'],
+        DESIGN = ['Accessibility','Responsive','Figma',], 
+        PLATAFORMS = ['Blogger']
+
     const insertSkills = (links, template, container) => {
-        links.forEach((el, i) => {
-            const 
-                LINK = links[i]
-    
+        links.forEach( el => {    
             template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`)
             template.querySelector('span').textContent = `${el}`
     
@@ -37,7 +20,7 @@ export const SKILLS = () => {
             $FRAGMENT.appendChild($clone)
         })
         
-        container.replaceChildren($FRAGMENT)
+        container.appendChild($FRAGMENT)
     }
     
     insertSkills(FRONTEND, $TEMPLATE_FRONTEND, $FRONTEND)
