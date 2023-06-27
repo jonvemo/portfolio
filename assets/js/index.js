@@ -1,5 +1,5 @@
 import { getHTML } from "/assets/js/include.js"
-import { LOADSKILLS } from "/assets/js/skills.js"
+import { Skills } from "/assets/js/skills.js"
 import { SOCIALMEDIA } from "/assets/js/social-links.js"
 
 document.addEventListener('DOMContentLoaded', ev=>{
@@ -35,8 +35,25 @@ document.addEventListener('DOMContentLoaded', ev=>{
     })
 
     
+    
 
-    LOADSKILLS('skills.json');
+const skills = new Skills('skills', 'template');
+
+const loadSkillsData = async (url) => {
+  try {
+    const data = await skills.fetchSkillsData(url);
+    await Promise.all([
+      skills.renderSkills(data, 'frontend'),
+      skills.renderSkills(data, 'design'),
+      skills.renderSkills(data, 'platforms')
+    ]);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+loadSkillsData('skills.json');
+
 
     SOCIALMEDIA()
     
