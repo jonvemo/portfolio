@@ -41,8 +41,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
     console.log(skills)
 
 
-    const url = '/data/skills.json'; // Reemplaza con la URL correcta
-    skills.fetchSkillsData(url)
+    skills.fetchSkillsData(url = '/data/skills.json')
     .then(data => {
         // Aquí puedes acceder a los datos recibidos y mostrarlos en tu aplicación
         console.log(data);
