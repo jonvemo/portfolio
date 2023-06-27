@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', ev=>{
 
     class Skills {
         constructor(containerId, templateId) {
-          this.container = document.getElementById(containerId);
-          this.template = document.getElementById(templateId).content;
+          this.containerId = containerId;
+          this.templateId = templateId;
+          this.container = null;
+          this.template = null;
           this.fragment = document.createDocumentFragment();
         }
       
@@ -51,6 +53,11 @@ document.addEventListener('DOMContentLoaded', ev=>{
           }
           const data = await response.json();
           return data;
+        }
+      
+        init() {
+          this.container = document.getElementById(this.containerId);
+          this.template = document.getElementById(this.templateId).content;
         }
       
         insertSkills(data) {
@@ -79,6 +86,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
       
       const loadSkillsData = async (url) => {
         try {
+          await skills.init();
           const data = await skills.fetchSkillsData(url);
           skills.renderSkills(url, 'frontend');
           skills.renderSkills(url, 'design');
@@ -88,6 +96,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
         }
       };
       
+    
        
       loadSkillsData('/data/skills.json');
       
