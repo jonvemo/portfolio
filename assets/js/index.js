@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
                     $MAIN.innerHTML = html
                 },
                 error: (html) => {
-                    const errorPageURL = '/error.html' // URL de la página de error
+                    const errorPageURL = '/page/404.html' // URL de la página de error
                     const errorXHR = new XMLHttpRequest()
                     errorXHR.addEventListener('load', () => {
                       $MAIN.innerHTML = errorXHR.responseText
