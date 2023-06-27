@@ -12,23 +12,5 @@ export class Skills {
       }
       return response.json();
     }
-  
-    insertSkills(data) {
-      data.forEach((item) => {
-        const $clone = document.importNode(this.template, true);
-        $clone.querySelector('use').setAttribute('href', `#${item.icon}`);
-        $clone.querySelector('span').textContent = item.name;
-        this.fragment.appendChild($clone);
-      });
-    }
-  
-    async renderSkills(data, key) {
-      try {
-        const skillsData = data[key] || [];
-        this.insertSkills(skillsData);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-  }
+}
   
