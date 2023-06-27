@@ -1,4 +1,4 @@
-class Skills {
+export class Skills {
     constructor(skills, containerId, templateId) {
       this.skills = skills;
       this.container = document.getElementById(containerId);
