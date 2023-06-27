@@ -22,9 +22,8 @@ export class Skills {
       });
     }
   
-    async renderSkills(url, key) {
+    async renderSkills(data, key) {
       try {
-        const data = await this.fetchSkillsData(url);
         const skillsData = data[key] || [];
         this.insertSkills(skillsData);
       } catch (err) {
