@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', ev=>{
             ev.preventDefault()
         
             let url = TARGET.href
-            TARGET.matches('.navegator__request *') ? url = TARGET.parentNode.href : url = TARGET.href
+            TARGET.matches('.navegator__request use') ? url = TARGET.parentNode.parentNode.href : url = TARGET.href
+            TARGET.matches('.navegator__request svg') ? url = TARGET.parentNode.href : url = TARGET.href
         
             getHTML({
                 url: url,
