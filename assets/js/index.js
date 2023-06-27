@@ -27,10 +27,16 @@ document.addEventListener('DOMContentLoaded', ev=>{
                 success: (html) => {
                     $MAIN.innerHTML = html
                 },
-                url:'/page/404.html',
                 error: (html) => {
-                    $MAIN.innerHTML = html
-                }
+                    const errorPageURL = '/error.html' // URL de la página de error
+                    const errorXHR = new XMLHttpRequest()
+                    errorXHR.addEventListener('load', () => {
+                      $MAIN.innerHTML = errorXHR.responseText
+                    })
+                    errorXHR.open('GET', errorPageURL)
+                    errorXHR.setRequestHeader('Content-type', 'text/html; charset=utf-8')
+                    errorXHR.send()
+                  }
             })
         }
         
