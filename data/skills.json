@@ -1,0 +1,21 @@
+{
+    "frontend": [
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "TypeScript", "icon": "typescript" },
+      { "name": "React", "icon": "react" },
+      { "name": "Git", "icon": "git" },
+      { "name": "HTML", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "SEO", "icon": "seo" },
+      { "name": "Progressive Web Aps", "icon": "pwa" }   
+    ],
+    "design": [
+      { "name": "Accessibility", "icon": "accessibility" },
+      { "name": "Responsive", "icon": "responsive" },
+      { "name": "Figma", "icon": "figma" }
+    ],
+    "platforms": [
+      { "name": "Blogger", "icon": "blogger" }
+    ]
+  }
+  

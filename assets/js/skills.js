@@ -1,46 +1,37 @@
-export const SKILLS = () => {
-    const 
-    $FRONTEND = document.getElementById('frontend'),
-    FRONTEND = [
-        'JavaScript',
-        'TypeScript',
-        'React',
-        'Git',
-        'HTML',
-        'CSS',
-        'SEO',
-        'PWA',
-    ],
-    $DESIGN = document.getElementById('design'),
-    DESIGN = [
-        'Accessibility',
-        'Responsive',
-        'Figma',
-    ], 
-    $PLATAFORMS = document.getElementById('plataforms'),
-    PLATAFORMS = [
-        'Blogger',
-    ],
-    $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
-    $TEMPLATE_DESIGN = document.getElementById('template__design').content,
-    $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
-    $FRAGMENT = document.createDocumentFragment()
-    const insertSkills = (links, template, container) => {
-        links.forEach((el, i) => {
-            const 
-                LINK = links[i]
-    
-            template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`)
-            template.querySelector('span').textContent = `${el}`
-    
-            let $clone = document.importNode(template, true)
-            $FRAGMENT.appendChild($clone)
-        })
-        
-        container.replaceChildren($FRAGMENT)
+export class Skills {
+    constructor(containerId, templateId) {
+      this.container = document.getElementById(containerId);
+      this.template = document.getElementById(templateId).content;
+      this.fragment = document.createDocumentFragment();
     }
-    
-    insertSkills(FRONTEND, $TEMPLATE_FRONTEND, $FRONTEND)
-    insertSkills(DESIGN, $TEMPLATE_DESIGN, $DESIGN)
-    insertSkills(PLATAFORMS, $TEMPLATE_PLATAFORMS, $PLATAFORMS)
-}
+  
+    async fetchSkillsData(url) {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+      return response.json();
+    }
+  
+    insertSkills(data) {
+      data.forEach((item) => {
+        const $clone = this.template.cloneNode(true);
+        $clone.querySelector('use').setAttribute('href', `#${item.icon}`);
+        $clone.querySelector('span').textContent = item.name;
+        this.fragment.appendChild($clone);
+      });
+    }
+  
+    async renderSkills(url, key) {
+      try {
+        const data = await this.fetchSkillsData(url);
+        const skillsData = data[key] || [];
+        this.insertSkills(skillsData);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+  
+  
+  
