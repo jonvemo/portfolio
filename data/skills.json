@@ -7,7 +7,7 @@
       { "name": "HTML", "icon": "html" },
       { "name": "CSS", "icon": "css" },
       { "name": "SEO", "icon": "seo" },
-      { "name": "Progressive Web Aps", "icon": "pwa" }   
+      { "name": "PWA", "icon": "pwa" }   
     ],
     "design": [
       { "name": "Accessibility", "icon": "accessibility" },
