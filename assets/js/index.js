@@ -1,5 +1,5 @@
 import { getHTML } from "/assets/js/include.js"
-// import { Skills } from "/assets/js/skills.js"
+import { Skills } from "/assets/js/skills.js"
 import { SOCIALMEDIA } from "/assets/js/social-links.js"
 
 document.addEventListener('DOMContentLoaded', ev=>{
@@ -37,76 +37,24 @@ document.addEventListener('DOMContentLoaded', ev=>{
     
     
 
-    class Skills {
-        constructor(containerId, templateId) {
-          this.containerId = containerId;
-          this.templateId = templateId;
-          this.container = null;
-          this.template = null;
-          this.fragment = document.createDocumentFragment();
-        }
-      
-        async fetchSkillsData(url) {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(`Error ${response.status}: ${response.statusText}`);
-          }
-          const data = await response.json();
-          return data;
-        }
-      
-        async init() {
-          this.container = document.getElementById(this.containerId);
-          this.template = await this.getTemplate();
-        }
-      
-        async getTemplate() {
-          const templateResponse = await fetch(this.templateId);
-          const templateText = await templateResponse.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(templateText, 'text/html');
-          return doc.querySelector('template');
-        }
-      
-        insertSkills(data) {
-          data.forEach((item) => {
-            const $clone = document.importNode(this.template.content, true);
-            $clone.querySelector('use').setAttribute('href', `#${item.icon}`);
-            $clone.querySelector('span').textContent = item.name;
-            this.fragment.appendChild($clone);
-          });
-      
-          this.container.replaceChildren(this.fragment);
-        }
-      
-        async renderSkills(url, key) {
-          try {
-            const data = await this.fetchSkillsData(url);
-            const skillsData = data[key] || [];
-            this.insertSkills(skillsData);
-          } catch (err) {
-            console.error(err);
-          }
-        }
-      }
-      
-      const skills = new Skills('skills', 'template.html');
-      
-      const loadSkillsData = async (url) => {
-        try {
-          await skills.init();
-          const data = await skills.fetchSkillsData(url);
-          skills.renderSkills(data, 'frontend');
-          skills.renderSkills(data, 'design');
-          skills.renderSkills(data, 'platforms');
-        } catch (err) {
-          console.error(err);
-        }
-      };
-      
-       
-      loadSkillsData('/data/skills.json');
-      
+    const skills = new Skills('skills', 'template');
+
+    const loadSkillsData = async (url) => {
+    try {
+        const data = await skills.fetchSkillsData(url);
+        console.log(url)
+        await Promise.all([
+        skills.renderSkills(data, 'frontend'),
+        skills.renderSkills(data, 'design'),
+        skills.renderSkills(data, 'platforms')
+        ])
+        console.log(Promise.all)
+    } catch (err) {
+        console.error(err);
+    }
+    };
+
+    loadSkillsData('/data/skills.json');
 
 
     SOCIALMEDIA()

@@ -6,7 +6,7 @@ export class Skills {
     }
 
     async fetchSkillsData(url) {
-      const response = await fetch(url = '/data/skills.json');
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
