@@ -3,7 +3,7 @@ export function SKILLS() {
     .then(response => response.json())
     .then(data => {
         const $FRONTEND = document.getElementById('frontend')
-        const FRONTEND = data.frontend
+        const FRONTEND = data.frontend.name
         const $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content
         const $FRAGMENT = document.createDocumentFragment()
         const insertSkills = (links, template, container) => {
