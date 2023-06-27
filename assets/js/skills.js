@@ -11,7 +11,7 @@ export function SKILLS() {
         const $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content
         const $FRAGMENT = document.createDocumentFragment()
         const insertSkills = (skill,icon,template,container) => {
-            console.log(links,template,container)
+            
             skill.forEach( el => {
                 
                 template.querySelector('use').setAttribute('href', `#${icon}`)
