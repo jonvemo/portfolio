@@ -7,17 +7,20 @@ export function SKILLS() {
             $FRONTEND = document.getElementById('frontend'),
             $DESIGN = document.getElementById('design'),
             $PLATAFORMS = document.getElementById('plataforms')
+
+        console.log($PLATAFORMS)
         
         const 
             $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
             $TEMPLATE_DESIGN = document.getElementById('template__design').content,
             $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content
 
+        console.log($TEMPLATE_PLATAFORMS)
         const 
             FRONTEND_SKILL = data.frontend.map(item => item.name),
             DESIGN_SKILL = data.design.map(item => item.name),
             PLATAFORMS_SKILL = data.plataforms.map(item => item.name)
-        
+        console.log(PLATAFORMS_SKILL)
 
         const insertSkills = (skill,template,container) => {
                 skill.forEach( el => {
@@ -29,7 +32,7 @@ export function SKILLS() {
                 })
                 
                 container.replaceChildren($FRAGMENT)
-            }
+        }
             
         insertSkills(FRONTEND_SKILL, $TEMPLATE_FRONTEND, $FRONTEND)
         insertSkills(DESIGN_SKILL, $TEMPLATE_DESIGN, $DESIGN)
@@ -40,4 +43,3 @@ export function SKILLS() {
         console.error('Error:', error)
     })
 }
-  
