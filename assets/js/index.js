@@ -19,26 +19,27 @@ document.addEventListener('DOMContentLoaded', ev=>{
         if(TARGET.matches('.navegator__request, .navegator__request *')) {
             ev.preventDefault()
         
-            let url = TARGET.href
-            TARGET.matches('.navegator__request use') ? url = TARGET.parentNode.parentNode.href : url = TARGET.href
+            let url
             TARGET.matches('.navegator__request svg') ? url = TARGET.parentNode.href : url = TARGET.href
         
-            getHTML({
-                url: url,
-                success: (html) => {
-                    $MAIN.innerHTML = html
-                },
-                error: (html) => {
-                    const errorPageURL = '/page/404.html' // URL de la página de error
-                    const errorXHR = new XMLHttpRequest()
-                    errorXHR.addEventListener('load', () => {
-                      $MAIN.innerHTML = errorXHR.responseText
-                    })
-                    errorXHR.open('GET', errorPageURL)
-                    errorXHR.setRequestHeader('Content-type', 'text/html; charset=utf-8')
-                    errorXHR.send()
-                  }
-            })
+            getHTML(url, 
+                {
+                    success: (html) => {
+                        $MAIN.innerHTML = html
+                    },
+                    error: () => {
+                        const errorPageURL = '/page/404.html'
+                        getHTML(errorPageURL, {
+                                success: (html) => {
+                                    $MAIN.innerHTML = html
+                                },
+                                error: (err) => {
+                                    $MAIN.innerHTML = `<h1>${err}</h1>`
+                            }
+                        })
+                    }
+                }
+            )
         }
         
     })

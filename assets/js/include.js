@@ -1,17 +1,15 @@
-export const getHTML = (options) => {
-    const XHR = new XMLHttpRequest()
-    let {url,success,error} = options  
+export const getHTML = (url, options) => {
+    const XHR = new XMLHttpRequest();
+    const { success, error } = options;
 
     XHR.addEventListener('readystatechange',e=>{
         if(XHR.readyState !==4) return
         if(XHR.status >= 200 && XHR.status < 300){
-            let html = XHR.responseText
+            const html = XHR.responseText
             success(html)
         } else {
-            let html = XHR.responseText
-            // let message = XHR.statusText || 'Error'
-            // error(`Error ${XHR.status}: ${message}`)
-            error(html)
+            const message = XHR.statusText || 'Error'
+            error(`Error ${XHR.status}: ${message}`)
         }
     })
 
@@ -19,3 +17,4 @@ export const getHTML = (options) => {
     XHR.setRequestHeader('Content-type','text/html; charset=utf-8')
     XHR.send()
 }
+  
