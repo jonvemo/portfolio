@@ -37,22 +37,25 @@ document.addEventListener('DOMContentLoaded', ev=>{
     
     
 
-    const skills = new Skills('frontend', 'template__frontend');
-    console.log(skills)
-
-
     
-    skills.fetchSkillsData()
-    .then(data => {
-        data.frontend
+  fetch('/data/skills.json')
+  .then(response => response.json())
+  .then(data => {
+    // Crear una instancia de la clase Skills con los datos obtenidos
+    const skillsData = new Skills(data, 'frontend', 'template__frontend');
 
-        // Aquí puedes acceder a los datos recibidos y mostrarlos en tu aplicación
-        console.log(data.frontend);
-    })
-    .catch(error => {
-        // Maneja cualquier error que ocurra durante la solicitud
-        console.error(error);
-    });
+    // Insertar habilidades en el DOM
+    skillsData.insertSkills();
+
+    // Usar los datos
+    const skillList = skillsData.getSkillList();
+    console.log(skillList);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+
 
 
     SOCIALMEDIA()
