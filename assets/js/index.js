@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
                 success: (html) => {
                     $MAIN.innerHTML = html
                 },
-                error: (err,html) => {
+                error: (html) => {
                     url = '/page/404.html'
                     $MAIN.innerHTML = html
                 }
