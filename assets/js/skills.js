@@ -4,11 +4,8 @@ export function SKILLS() {
     .then(data => {
         const $FRONTEND = document.getElementById('frontend')
         const FRONTEND = data.frontend
-
-        $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
-        $TEMPLATE_DESIGN = document.getElementById('template__design').content,
-        $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content,
-        $FRAGMENT = document.createDocumentFragment()
+        const $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content
+        const $FRAGMENT = document.createDocumentFragment()
         const insertSkills = (links, template, container) => {
             links.forEach((el, i) => {
                 const 
