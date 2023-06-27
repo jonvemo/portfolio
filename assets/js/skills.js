@@ -1,4 +1,4 @@
-export function fetchSkillsData() {
+export function SKILLS() {
     return fetch('/data/skills.json')
     .then(response => response.json())
     .then(data => {

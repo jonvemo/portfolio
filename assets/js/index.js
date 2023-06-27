@@ -1,5 +1,5 @@
 import { getHTML } from "/assets/js/include.js"
-import { Skills } from "/assets/js/skills.js"
+import { SKILLS } from "/assets/js/skills.js"
 import { SOCIALMEDIA } from "/assets/js/social-links.js"
 
 document.addEventListener('DOMContentLoaded', ev=>{
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
 
 
 
-
+    SKILLS()
     SOCIALMEDIA()
     
 })
