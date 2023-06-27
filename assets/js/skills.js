@@ -3,10 +3,10 @@ export function SKILLS() {
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        const NEW_JSON = data
-        const NEW_PARSE = JSON.parse(NEW_JSON)
+        
+        const NEW_PARSE = JSON.parse(data.frontend)
 
-        console.log(NEW_PARSE.frontend.name)
+        console.log(NEW_PARSE.name)
 
 
         
