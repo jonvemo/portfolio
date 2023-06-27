@@ -3,17 +3,19 @@ export function SKILLS() {
     .then(response => response.json())
     .then(data => {
         const $FRONTEND = document.getElementById('frontend')
-        const FRONTEND = data.frontend.name
+        
+        const FRONTEND_SKILLS = data.frontend
+        const FRONTEND_NAME = FRONTEND_SKILLS.map(skill => skill.name)
+        const FRONTEND_ICON = FRONTEND_SKILLS.map(skill => skill.icon)
+
         const $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content
         const $FRAGMENT = document.createDocumentFragment()
-        const insertSkills = (links, template, container) => {
+        const insertSkills = (skill,icon,template,container) => {
             console.log(links,template,container)
-            links.forEach((el, i) => {
-                const 
-                    LINK = links[i]
-        
-                template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`)
-                template.querySelector('span').textContent = `${el}`
+            skill.forEach( el => {
+                
+                template.querySelector('use').setAttribute('href', `#${icon}`)
+                template.querySelector('span').textContent = `${skill}`
         
                 let $clone = document.importNode(template, true)
                 $FRAGMENT.appendChild($clone)
@@ -22,7 +24,7 @@ export function SKILLS() {
             container.replaceChildren($FRAGMENT)
         }
         
-        insertSkills(FRONTEND, $TEMPLATE_FRONTEND, $FRONTEND)
+        insertSkills(FRONTEND_NAME,FRONTEND_ICON,$TEMPLATE_FRONTEND,$FRONTEND)
         
     })
     .catch(error => {
