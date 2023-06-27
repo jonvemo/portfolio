@@ -42,11 +42,13 @@ const skills = new Skills('skills', 'template');
 const loadSkillsData = async (url) => {
   try {
     const data = await skills.fetchSkillsData(url);
+    console.log(url)
     await Promise.all([
       skills.renderSkills(data, 'frontend'),
       skills.renderSkills(data, 'design'),
       skills.renderSkills(data, 'platforms')
-    ]);
+    ])
+    console.log(Promise.all)
   } catch (err) {
     console.error(err);
   }
