@@ -12,5 +12,5 @@ export class Skills {
       }
       return response.json();
     }
+    
 }
-  
