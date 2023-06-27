@@ -7,31 +7,27 @@ export function SKILLS() {
             $FRONTEND = document.getElementById('frontend'),
             $DESIGN = document.getElementById('design'),
             $PLATAFORMS = document.getElementById('plataforms')
-
-        console.log($PLATAFORMS)
         
         const 
             $TEMPLATE_FRONTEND = document.getElementById('template__frontend').content,
             $TEMPLATE_DESIGN = document.getElementById('template__design').content,
             $TEMPLATE_PLATAFORMS = document.getElementById('template__plataforms').content
 
-        console.log($TEMPLATE_PLATAFORMS)
         const 
             FRONTEND_SKILL = data.frontend.map(item => item.name),
             DESIGN_SKILL = data.design.map(item => item.name),
             PLATAFORMS_SKILL = data.plataforms.map(item => item.name)
-        console.log(PLATAFORMS_SKILL)
 
         const insertSkills = (skill,template,container) => {
-                skill.forEach( el => {
-                    template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`)
-                    template.querySelector('span').textContent = `${el}`
+            skill.forEach( el => {
+                template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`)
+                template.querySelector('span').textContent = `${el}`
+        
+                let $clone = document.importNode(template, true)
+                $FRAGMENT.appendChild($clone)
+            })
             
-                    let $clone = document.importNode(template, true)
-                    $FRAGMENT.appendChild($clone)
-                })
-                
-                container.replaceChildren($FRAGMENT)
+            container.replaceChildren($FRAGMENT)
         }
             
         insertSkills(FRONTEND_SKILL, $TEMPLATE_FRONTEND, $FRONTEND)

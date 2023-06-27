@@ -14,7 +14,7 @@
       { "name": "Responsive", "icon": "responsive" },
       { "name": "Figma", "icon": "figma" }
     ],
-    "platforms": [
+    "plataforms": [
       { "name": "Blogger", "icon": "blogger" }
     ]
   }
