@@ -252,7 +252,8 @@ textarea {resize: none;}
     justify-content: space-between;
 }
 
-
+/** 404 */
+.not {display: grid; place-content: center; justify-items: center; gap: 0;}
 
 /** Online/Offline */
 .backOnline {
