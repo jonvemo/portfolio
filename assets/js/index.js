@@ -52,7 +52,7 @@ const loadSkillsData = async (url) => {
   }
 };
 
-loadSkillsData('skills.json');
+loadSkillsData('/data/skills.json');
 
 
     SOCIALMEDIA()
