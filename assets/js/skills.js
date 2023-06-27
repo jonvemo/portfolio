@@ -4,7 +4,7 @@ export class Skills {
       this.template = document.querySelector(templateId).content;
       this.fragment = document.createDocumentFragment();
     }
-
+  
     async fetchSkillsData(url) {
       const response = await fetch(url);
       if (!response.ok) {
@@ -15,7 +15,7 @@ export class Skills {
   
     insertSkills(data) {
       data.forEach((item) => {
-        const $clone = document.importNode(this.template.content, true);
+        const $clone = document.importNode(this.template, true);
         $clone.querySelector('use').setAttribute('href', `#${item.icon}`);
         $clone.querySelector('span').textContent = item.name;
         this.fragment.appendChild($clone);
