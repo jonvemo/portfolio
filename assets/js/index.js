@@ -1,5 +1,5 @@
 import { getHTML } from "/assets/js/include.js"
-import { LOADSKILLS } from "/assets/js/skills.js"
+import { Skills, LOADSKILLS } from "/assets/js/skills.js"
 import { SOCIALMEDIA } from "/assets/js/social-links.js"
 
 document.addEventListener('DOMContentLoaded', ev=>{

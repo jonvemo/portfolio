@@ -33,9 +33,10 @@ export class Skills {
     }
   }
   
-  const SKILLS = new Skills('skills', 'template');
 
     export const LOADSKILLS = async (url) => {
+        
+    const SKILLS = new Skills('skills', 'template');
         try {
             const data = await SKILLS.fetchSkillsData(url)
             await Promise.all([
