@@ -33,5 +33,19 @@ export class Skills {
     }
   }
   
+  const SKILLS = new Skills('skills', 'template');
+
+    export const LOADSKILLS = async (url) => {
+        try {
+            const data = await SKILLS.fetchSkillsData(url)
+            await Promise.all([
+                SKILLS.renderSkills(data, 'frontend'),
+                SKILLS.renderSkills(data, 'design'),
+                SKILLS.renderSkills(data, 'platforms')
+            ])
+        } catch (err) {
+            console.error(err);
+        }
+    }
   
   
