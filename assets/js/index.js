@@ -55,14 +55,22 @@ document.addEventListener('DOMContentLoaded', ev=>{
           return data;
         }
       
-        init() {
+        async init() {
           this.container = document.getElementById(this.containerId);
-          this.template = document.getElementById(this.templateId).content;
+          this.template = await this.getTemplate();
+        }
+      
+        async getTemplate() {
+          const templateResponse = await fetch(this.templateId);
+          const templateText = await templateResponse.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(templateText, 'text/html');
+          return doc.querySelector('template');
         }
       
         insertSkills(data) {
           data.forEach((item) => {
-            const $clone = this.template.cloneNode(true);
+            const $clone = document.importNode(this.template.content, true);
             $clone.querySelector('use').setAttribute('href', `#${item.icon}`);
             $clone.querySelector('span').textContent = item.name;
             this.fragment.appendChild($clone);
@@ -82,21 +90,23 @@ document.addEventListener('DOMContentLoaded', ev=>{
         }
       }
       
-      const skills = new Skills('skills', 'template');
+      const skills = new Skills('skills', 'template.html');
       
       const loadSkillsData = async (url) => {
         try {
           await skills.init();
           const data = await skills.fetchSkillsData(url);
-          skills.renderSkills(url, 'frontend');
-          skills.renderSkills(url, 'design');
-          skills.renderSkills(url, 'platforms');
+          skills.renderSkills(data, 'frontend');
+          skills.renderSkills(data, 'design');
+          skills.renderSkills(data, 'platforms');
         } catch (err) {
           console.error(err);
         }
       };
       
-    
+      loadSkillsData('skills.json');
+      
+      
        
       loadSkillsData('/data/skills.json');
       
