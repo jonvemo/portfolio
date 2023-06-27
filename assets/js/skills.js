@@ -2,16 +2,11 @@ export function SKILLS() {
     return fetch('/data/skills.json')
     .then(response => response.json())
     .then(data => {
-        let json = '{"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}';
-        let objeto = JSON.parse(json);
-        console.log(objeto.nombre)
-
-        console.log(data)
-        console.log(data.frontend)
         
-        const NEW_PARSE = JSON.parse(data)
+        const SKILLS = data.frontend.map(item => item.name);
+        
 
-        console.log(NEW_PARSE.name)
+        console.log(SKILLS)
 
 
 
