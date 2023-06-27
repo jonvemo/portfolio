@@ -41,10 +41,13 @@ document.addEventListener('DOMContentLoaded', ev=>{
     console.log(skills)
 
 
-    skills.fetchSkillsData(url = '/data/skills.json')
+    
+    skills.fetchSkillsData()
     .then(data => {
+        data.frontend
+
         // Aquí puedes acceder a los datos recibidos y mostrarlos en tu aplicación
-        console.log(data);
+        console.log(data.frontend);
     })
     .catch(error => {
         // Maneja cualquier error que ocurra durante la solicitud
