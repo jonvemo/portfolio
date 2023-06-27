@@ -4,9 +4,9 @@ export class Skills {
       this.template = document.querySelector(templateId).content;
       this.fragment = document.createDocumentFragment();
     }
-  
+
     async fetchSkillsData(url) {
-      const response = await fetch(url);
+      const response = await fetch(url = '/data/skills.json');
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
