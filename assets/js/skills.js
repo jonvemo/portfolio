@@ -1,7 +1,7 @@
 export class Skills {
     constructor(containerId, templateId) {
       this.container = document.getElementById(containerId);
-      this.template = document.querySelector(templateId);
+      this.template = document.querySelector(templateId).content;
       this.fragment = document.createDocumentFragment();
     }
   
