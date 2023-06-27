@@ -12,10 +12,10 @@ export function SKILLS() {
         const $FRAGMENT = document.createDocumentFragment()
         const insertSkills = (skill,icon,template,container) => {
             
-            skill.forEach( el => {
+            skill.forEach( (el) => {
                 
-                template.querySelector('use').setAttribute('href', `#${icon}`)
-                template.querySelector('span').textContent = `${skill}`
+                template.querySelector('use').setAttribute('href', `#${el.toLowerCase()}`)
+                template.querySelector('span').textContent = `${el}`
         
                 let $clone = document.importNode(template, true)
                 $FRAGMENT.appendChild($clone)
