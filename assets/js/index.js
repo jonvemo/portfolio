@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', ev=>{
                 CURRENT_ICON = $BTN_USE.getAttribute('href')
 
             $SOCIALMEDIA_HIDDEN.classList.toggle('hidden')
-            CURRENT_ICON == = '#caret__right' ? $BTN_USE.setAttribute('href', '#caret__left') : $BTN_USE.setAttribute('href', '#caret__right')
+            CURRENT_ICON === '#caret__right' ? $BTN_USE.setAttribute('href', '#caret__left') : $BTN_USE.setAttribute('href', '#caret__right')
         }
         if(TARGET.matches('.navegator__request, .navegator__request *')) {
             ev.preventDefault()
