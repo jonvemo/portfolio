@@ -1,8 +1,7 @@
-
 export class Skills {
     constructor(containerId, templateId) {
       this.container = document.getElementById(containerId);
-      this.template = document.getElementById(templateId).content;
+      this.template = document.querySelector(templateId);
       this.fragment = document.createDocumentFragment();
     }
   
@@ -16,7 +15,7 @@ export class Skills {
   
     insertSkills(data) {
       data.forEach((item) => {
-        const $clone = this.template.cloneNode(true);
+        const $clone = document.importNode(this.template.content, true);
         $clone.querySelector('use').setAttribute('href', `#${item.icon}`);
         $clone.querySelector('span').textContent = item.name;
         this.fragment.appendChild($clone);
