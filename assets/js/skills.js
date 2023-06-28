@@ -6,28 +6,24 @@ export async function SKILLS() {
         const $FRAGMENT = document.createDocumentFragment();
         const CATEGORIES = Object.keys(data);
 
-        const INSERT_CATEGORY = (category, template, container) => {
-        const categoryData = data[category];
-        const templateContent = template.content
+        const INSERT_CATEGORIE = (category, template, container) => {
+            const CATEGORIE = data[category].map(item => item.name);
+        
+            CATEGORIE.forEach(skill => {
+                const $clone = document.importNode(template, true);
+                $clone.querySelector('use').setAttribute('href', `#${skill.toLowerCase()}`)
+                $clone.querySelector('span').textContent = skill
+                $FRAGMENT.appendChild($clone)
+            })
 
-        categoryData.forEach(item => {
-            const skill = item.name;
-            const $clone = templateContent.cloneNode(true);
-            $clone.querySelector('use').setAttribute('href', `#${skill.toLowerCase()}`);
-            $clone.querySelector('span').textContent = skill;
-            $FRAGMENT.appendChild($clone);
-        });
+            container.appendChild($FRAGMENT)
+        }
 
-        container.appendChild($FRAGMENT);
-        };
-
-        const promises = CATEGORIES.map(async category => {
-        const $TEMPLATE = document.getElementById(`template__${category}`);
-        const $CONTAINER = document.getElementById(category);
-        await INSERT_CATEGORY(category, $TEMPLATE, $CONTAINER);
-        });
-
-        await Promise.all(promises);
+        CATEGORIES.forEach(category => {
+            const $TEMPLATE = document.getElementById(`template__${category}`).content
+            const $CONTAINER = document.getElementById(category)
+            INSERT_CATEGORIE(category, $TEMPLATE, $CONTAINER)
+        })
 
     }
     catch (error) {
