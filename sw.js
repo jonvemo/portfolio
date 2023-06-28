@@ -1,4 +1,4 @@
-const VERSION = 2
+const VERSION = 3
 let 
   nameDynamic = `Dynamic CACHE`,
   nameStatic = `Static CACHE-${VERSION}`,
@@ -10,44 +10,39 @@ let
   assets = ['/assets/css/index.css'],
   assetsImg = ['/assets/img/favicon.png']
 
-async function deleteOldCaches() {
-  const keys = await caches.keys();
-  const oldCacheKeys = keys.filter((key) => key !== nameStatic && key !== nameImg);
-  const deletePromises = oldCacheKeys.map((key) => caches.delete(key));
-  await Promise.all(deletePromises);
-}
-
-
-
-self.addEventListener('install', async (ev) => {
-  console.log(`Version ${VERSION} installed`);
-  try {
-    await cacheAssets();
-    await cacheImages();
-    console.log(`${nameStatic} and ${nameImg} have been updated`);
-  } catch (err) {
-    console.warn(`Failed to update ${nameStatic} or ${nameImg}`);
-  }
-});
 
 async function cacheAssets() {
-  const cache = await caches.open(nameStatic);
-  await cache.addAll(assets);
+  const cache = await caches.open(nameStatic)
+  await cache.addAll(assets)
 }
 
 async function cacheImages() {
-  const cache = await caches.open(nameImg);
-  await cache.addAll(assetsImg);
+  const cache = await caches.open(nameImg)
+  await cache.addAll(assetsImg)
+}
+
+async function deleteOldCaches() {
+  const keys = await caches.keys()
+  const oldCacheKeys = keys.filter((key) => key !== nameStatic && key !== nameImg)
+  const deletePromises = oldCacheKeys.map((key) => caches.delete(key))
+  await Promise.all(deletePromises)
 }
 
   
+self.addEventListener('install', async (ev) => {
+  console.log(`Version ${VERSION} installed`);
+  try {
+    await cacheAssets()
+    await cacheImages()
+    console.log(`${nameStatic} and ${nameImg} have been updated`)
+  } catch (err) {
+    console.warn(`Failed to update ${nameStatic} or ${nameImg}`)
+  }
+})
 
 self.addEventListener('activate', (ev) => {
-  console.log('Activated');
-  ev.waitUntil(
-    deleteOldCaches()
-      .then((empties) => {})
-  )
+  console.log('Activated')
+  ev.waitUntil( deleteOldCaches().then((empties) => {}) )
 })
 
 
