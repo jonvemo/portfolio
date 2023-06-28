@@ -24,6 +24,7 @@ export async function SKILLS() {
             const $CONTAINER = document.getElementById(category)
             INSERT_CATEGORIE(category, $TEMPLATE, $CONTAINER)
         })
+        
 
     }
     catch (error) {
