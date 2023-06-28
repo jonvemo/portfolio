@@ -1,15 +1,15 @@
 /* Elements */
-::-webkit-scrollbar {width:8px; height:8px;} 
+::-webkit-scrollbar {width:var(--size-tiny); height:var(--size-tiny);} 
 ::-webkit-scrollbar-track {background: var(--bg);} 
-::-webkit-scrollbar-thumb {background: #C5C5C5; border-radius:10px;} 
+::-webkit-scrollbar-thumb {background: #C5C5C5; border-radius: var(--size-tiny);} 
 ::selection {background-color: var(--accent); color: var(--bg);}
-.flex {display: flex; gap: 16px;} .grid {display: grid; gap: 16px;}
+.flex {display: flex; gap: var(--size-smaller);} .grid {display: grid; gap: var(--size-smaller);}
 .icons {position: absolute; visibility: hidden;}
 
 /* TABLES */
-table {display: flex; flex-flow: column nowrap; border-radius: 16px; border: 1px var(--border); border-collapse: collapse; overflow: hidden;}
+table {display: flex; flex-flow: column nowrap; border-radius: var(--size-smaller); border: .16em var(--border); border-collapse: collapse; overflow: hidden;}
 caption {display: flex; justify-content: space-between; align-items: center; font-weight: bold; text-transform: uppercase; text-align: left;}
-caption,th,td {padding: 16px;}
+caption,th,td {padding: var(--size-smaller);}
 caption,thead th {background-color: var(--bg);}
 tr {display: flex; flex-flow: row wrap;}
 tr:nth-child(odd) {background-color: var(--main-bg);}
@@ -21,8 +21,8 @@ td {flex: 1;}
 .list__inline {
     display: flex;
     flex-flow: row wrap;
-    gap: 16px;
-    min-height: 58px;
+    gap: var(--size-smaller);
+    min-height: 3.5em;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -42,14 +42,14 @@ body {
     width: 100%;
     background-color: var(--transparent-bg);
     backdrop-filter: blur(4px);
-    border: 1px var(--border);
+    border: .16em var(--border);
     z-index: 1;
 }
 .header:focus-within .navegator__link {
-    border: 1px var(--border);
+    border: .16em var(--border);
 }
 .header:focus-within:has(:focus-visible) {
-    padding: 8px 0;
+    padding: var(--size-tiny) 0;
 }
 .title {
     font-weight: bold;
@@ -62,15 +62,15 @@ body {
 }
 .navegator__link {
     border-radius: 0;
-    &:not(:last-child) {border-width: 0 1px 0 1px;}
-    &:last-child {border-width: 0 1px 0 0;}
+    &:not(:last-child) {border-width: 0 .16em 0 .16em;}
+    &:last-child {border-width: 0 .16em 0 0;}
 }
 :is(.navegator__link,.social__link) {
     place-content: center;
-    min-width: 48px;
+    min-width: var(--size-medium);
     
     &.btn__large {padding: 0;}
-    &.btn__large:is(:active,:focus,:focus-visible) {padding: 8px 16px; z-index: 1;}
+    &.btn__large:is(:active,:focus,:focus-visible) {padding: var(--size-tiny) var(--size-smaller); z-index: 1;}
     &:is(:hover,:active,:focus-visible) {text-decoration: none;}
     &:is(:active,:focus,:focus-visible) :is(.navegator__span,.social__span) {display: block;}
 }
@@ -84,16 +84,16 @@ body {
 #main {
     min-height: 80vh;
     background-image: var(--secundary-gradient);
-    border: 1px var(--border);
-    border-radius: 16px 0 16px 16px;
+    border: .16em var(--border);
+    border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
 }
 
 /** MODULES */
 .module {
     min-height: 100vh;
-    padding: 32px;
+    padding: var(--size-small);
     background-image: var(--secundary-gradient);
-    gap: var(--gap);
+    gap: var(--size-large);
 }
 
 /** HOME */
@@ -107,7 +107,7 @@ body {
 .profile {
     display: grid;
     grid-template-areas: "presentation" "logo";
-    gap: var(--gap);
+    gap: var(--size-large);
 }
 .profile__item:has(.profile__img) {
     grid-area: logo;
@@ -121,7 +121,7 @@ body {
 }
 .profile__paragraph {
     white-space: pre-line;
-    line-height: 28px;
+    line-height: 1.5em;
     margin: 0 0 1em 0;
 }
 
@@ -137,7 +137,7 @@ body {
 .social {
     display: flex;
     flex-flow: row wrap;
-    gap: 8px;
+    gap: var(--size-tiny);
 }
 .social__link, .navegator__link{
     position: relative;
@@ -145,25 +145,25 @@ body {
     &:hover:before {
         content: attr(aria-label);
         position: absolute;
-        bottom: calc( 48px + 16px );
+        bottom: calc( var(--size-medium) + var(--size-smaller) );
         display: flex;
-        padding: 16px;
+        padding: var(--size-smaller);
         background-image: var(--primary-gradient);
-        border-radius: 8px;
-        border: 1px var(--border);
+        border-radius: var(--size-tiny);
+        border: .1em var(--border);
         text-transform: capitalize;
         font-weight: bold;
     }
     &:hover:after {
         content: '';
         position: absolute;
-        bottom: calc( 48px + 8px );
+        bottom: calc( var(--size-medium) + var(--size-tiny) );
         display: flex;
         width: 0;
         height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-top: 8px var(--border);
+        border-left: var(--size-tiny) solid transparent;
+        border-right: var(--size-tiny) solid transparent;
+        border-top: var(--size-tiny) var(--border);
     }
 }
 
@@ -171,7 +171,7 @@ body {
 .skills__item {
     display: flex;
     flex-flow: column;
-    gap: 8px;
+    gap: var(--size-tiny);
 }
 .skills__title {
     font-size: 1.5rem;
@@ -182,12 +182,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    min-width: 56px;
-    padding: 16px;
+    gap: var(--size-tiny);
+    min-width: 3.5em;
+    padding: var(--size-smaller);
     background-color: var(--bg);
-    border-radius: 8px;
-    border: 1px var(--border);
+    border-radius: var(--size-tiny);
+    border: .16em var(--border);
     font-weight: bold;
 }
 .list__span {
@@ -203,51 +203,51 @@ input[type="radio"],input[type="checkbox"] {
     appearance: none;
     display: grid;
     place-content: center;
-    width: 20px;
-    height: 20px;
+    width: 1.25em;
+    height: 1.25em;
     border-radius: 50%;
-    border: 1px var(--border);
+    border: .16em var(--border);
 
     &:checked {
         background-color: var(--accent);
-        border: 1px var(--border);
+        border: .16em var(--border);
     }
     &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
 }
 
 input[type="text"],input[type="email"],textarea {
     width: 100%;
-    padding: 8px 16px;
+    padding: var(--size-tiny) var(--size-tiny);
     background-color: var(--main-bg);
-    border-radius: 8px;
-    border: 1px var(--border);
+    border-radius: var(--size-tiny);
+    border: .16em var(--border);
 
-    &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
+    &:focus-visible {outline: .25em solid var(--main-color); outline-offset: 0;}
     &:placeholder-shown {color: var(--accent);}
     &:not(:placeholder-shown):focus {
-        &:invalid {outline: 4px solid red;} 
-        &:valid {outline: 4px solid green;}
+        &:invalid {outline: .25em solid red;} 
+        &:valid {outline: .25em solid green;}
     }
     &::placeholder {color: var(--accent); font-weight: bold;}
 } 
 :is(textarea,input,select):autofill {
-    border: 1px var(--border);
+    border: .16em var(--border);
     -webkit-text-fill-color: var(--main-color);
     box-shadow: 0 0 0 100px var(--bg) inset;
 }
 textarea {resize: none;}
 
 .contact__form {
-    display: flex; flex-direction: column; gap: 16px;
+    display: flex; flex-direction: column; gap: var(--size-smaller);
 }
 .contact__item {
-    display: flex; flex-direction: column; gap: 8px; flex: 1;
+    display: flex; flex-direction: column; gap: var(--size-tiny); flex: 1;
 
     &.inline {flex-flow: row wrap; align-items: center;}
 }
 .contact__item label {
     display: flex;
-    gap: 8px;
+    gap: var(--size-tiny);
     align-items: center;
     justify-content: space-between;
 }
@@ -274,10 +274,10 @@ textarea {resize: none;}
     animation: visibility 3s ease;
 }
 .isOnOff__content {
-    padding: 32px;
+    padding: var(--size-small);
     background-color: var(--bg);
-    border-radius: 16px;
-    border: 1px var(--border);
+    border-radius: var(--size-smaller);
+    border: .16em var(--border);
 }
 
 @keyframes visibility {
@@ -348,4 +348,10 @@ textarea {resize: none;}
         grid-template-areas: "logo presentation" "logo links";
         grid-template-columns: 250px 1fr;
     }
+}
+@media (min-width: 2560px) {
+    * {font-size: 32px;}
+}
+@media (min-width: 3840px) {
+    * {font-size: 48px;}
 }

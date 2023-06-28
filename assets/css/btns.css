@@ -1,19 +1,19 @@
 .btn {
-    background-color: var(--main-bg); background: var(--secundary-gradient); border-radius: 32px; border: 1px var(--border);
+    background-color: var(--main-bg); background: var(--secundary-gradient); border-radius: var(--size-small); border: .16em var(--border);
     
     &:is(:hover,:active,:focus):not(:disabled) {background-color: var(--primary-gradient); color: var(--main-color);}
     &:is(:hover,:active,:focus):not(:disabled) svg {fill: var(--main-color);}
-    &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
+    &:focus-visible {outline: var(--size-xtiny) solid var(--main-color); outline-offset: 0;}
     &:disabled {filter: grayscale(1);}
 
-    &.btn__small {display: grid; place-content: center; width: 48px; height: 48px;}
-    &.btn__large {display: flex; gap: 8px; align-items: center; width: fit-content; height: 48px; padding: 16px 32px;}
+    &.btn__small {display: grid; place-content: center; width: var(--size-medium); height: var(--size-medium);}
+    &.btn__large {display: flex; gap: var(--size-tiny); align-items: center; width: fit-content; height: var(--size-medium); padding: var(--size-smaller) var(--size-small);}
 }
 
 .btn__icon {
-    display: grid; place-content: center; height: 48px; width: 48px; background-color: transparent; border: none; border-radius: 50%;
+    display: grid; place-content: center; height: var(--size-medium); width: var(--size-medium); background-color: transparent; border: none; border-radius: 50%;
 
-    &:focus-within {outline: 2px solid gold; outline-offset: 0;}
+    &:focus-within {outline: .32em solid gold; outline-offset: 0;}
 
     &.star:is(:hover,:active,:focus) {background-color: #ffd70020;}
     &.star:is(:hover,:active,:focus) svg {fill: gold;}

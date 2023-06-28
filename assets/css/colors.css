@@ -6,7 +6,8 @@
     --primary-gradient: linear-gradient(45deg,var(--bg),var(--main-bg));
     --secundary-gradient: linear-gradient(45deg,var(--main-bg),var(--bg));
     --border: solid #ffffff20;
-    --gap: 64px;
+
+    --size-large: 4em; --size-medium: 3em; --size-small: 2em; --size-smaller: 1em; --size-tiny: .5em; --size-xtiny: .25em;
 }
 @media (prefers-color-scheme: dark) {
     :root {
