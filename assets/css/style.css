@@ -296,7 +296,7 @@ textarea {resize: none;}
 }
 
 /** PC */
-@media (min-width: 1000px) {
+@media (min-width: 1280px) {
     body {
         display: grid;
         place-content: center;
@@ -339,9 +339,9 @@ textarea {resize: none;}
         padding: var(--size-large);
         border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
     }
+
     .home {
-        grid-template-areas: "profile stats" "skills stats";
-        grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - var(--size-smaller));
+        grid-template-areas: "profile" "stats" "skills";
     }
     .profile {
         gap: 0 var(--size-large);
@@ -349,12 +349,18 @@ textarea {resize: none;}
         grid-template-columns: 16em 1fr;
     }
 }
+@media (min-width: 1920px) {
+    .home {
+        grid-template-areas: "profile stats" "skills stats";
+        grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - var(--size-smaller));
+    }
+}
 @media (min-width: 2560px) {
-    * {font-size: 32px;}
+    * {font-size: 24px;}
 }
 @media (min-width: 3840px) {
-    * {font-size: 48px;}
+    * {font-size: 36px;}
 }
 @media (min-width: 7680px) {
-    * {font-size: 96px;}
+    * {font-size: 76px;}
 }
