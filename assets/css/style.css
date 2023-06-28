@@ -337,21 +337,24 @@ textarea {resize: none;}
         min-height: 80vh;
         margin: 0 auto;
         padding: var(--size-large);
-        border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller) var(--size-smaller);
+        border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
     }
     .home {
         grid-template-areas: "profile stats" "skills stats";
-        grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - 16px);
+        grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - var(--size-smaller));
     }
     .profile {
-        gap: 0 var(--gap);
+        gap: 0 var(--size-large);
         grid-template-areas: "logo presentation" "logo links";
         grid-template-columns: 16em 1fr;
     }
 }
-@media (min-width: 2560px) {
+@media (min-width: 2560) {
     * {font-size: 32px;}
 }
-@media (min-width: 3840px) {
+@media (min-width: 3840) {
     * {font-size: 48px;}
+}
+@media (min-width: 7680) {
+    * {font-size: 96px;}
 }
