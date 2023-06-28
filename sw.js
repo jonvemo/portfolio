@@ -42,7 +42,7 @@ self.addEventListener('install', async (ev) => {
 
 self.addEventListener('activate', (ev) => {
   console.log('Activated')
-  ev.waitUntil( deleteOldCaches().then((empties) => {}) )
+  ev.waitUntil( deleteOldCaches().then(() => { console.log('Old cache deleted') }) )
 })
 
 
