@@ -349,19 +349,22 @@ textarea {resize: none;}
         grid-template-columns: 16em 1fr;
     }
 }
-/* 1920 - 55 (sidebar edge, opera) */
+/** FULL HD 1920 - 55 (sidebar edge, opera) */
 @media (min-width: 1865px) {
     .home {
         grid-template-areas: "profile stats" "skills stats";
         grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - var(--size-smaller));
     }
 }
+/** 2K */
 @media (min-width: 2560px) {
     * {font-size: 24px;}
 }
+/** 4K */
 @media (min-width: 3840px) {
     * {font-size: 36px;}
 }
+/** 8K */
 @media (min-width: 7680px) {
     * {font-size: 76px;}
 }
