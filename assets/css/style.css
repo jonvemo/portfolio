@@ -55,9 +55,10 @@ body {
     justify-content: center;
 }
 .navegator__link {
+    flex: 1;
     border-radius: 0;
-    &:not(:last-child) {border-width: 0 .1em 0 .1em;}
-    &:last-child {border-width: 0 .1em 0 0;}
+    border-width: 0 .1em 0 .1em;
+    &:nth-child(1) {border-width: 0 0 0 .1em;}
 }
 :is(.navegator__link,.social__link) {
     place-content: center;
@@ -276,7 +277,6 @@ textarea {resize: none;}
     }
     .header {
         position: unset;
-        width: 80vw;
         background-color: initial;
         border: none;
 
@@ -286,6 +286,7 @@ textarea {resize: none;}
         justify-content: flex-end;
     }
     .navegator__link.btn {
+        flex: initial;
         border-width: .1em .1em 0 .1em;
         border-radius: var(--size-tiny) var(--size-tiny) 0 0;
     }
