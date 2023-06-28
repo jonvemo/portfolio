@@ -349,12 +349,12 @@ textarea {resize: none;}
         grid-template-columns: 16em 1fr;
     }
 }
-@media (min-width: 2560) {
+@media (min-width: 2560px) {
     * {font-size: 32px;}
 }
-@media (min-width: 3840) {
+@media (min-width: 3840px) {
     * {font-size: 48px;}
 }
-@media (min-width: 7680) {
+@media (min-width: 7680px) {
     * {font-size: 96px;}
 }
