@@ -349,7 +349,8 @@ textarea {resize: none;}
         grid-template-columns: 16em 1fr;
     }
 }
-@media (min-width: 1920px) {
+/* 1920 - 55 (sidebar edge, opera) */
+@media (min-width: 1865px) {
     .home {
         grid-template-areas: "profile stats" "skills stats";
         grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - var(--size-smaller));
