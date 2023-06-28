@@ -251,17 +251,16 @@ textarea {resize: none;}
 .not {display: grid; place-content: center; justify-items: center; gap: 0;}
 
 /** Online/Offline */
-#isOnOff.isOnOff {
-    opacity: 0;
-    visibility: hidden;
-    animation: fadeInOut 10s linear;
-} 
 #isOnOff {
     position: fixed;
     right: var(--size-small);
     bottom: calc( var(--size-medium) + var(--size-small) );
+    opacity: 0;
+    visibility: hidden;
 }
-
+.isOnOff {
+    animation: fadeInOut 10s linear;
+}
 @keyframes fadeInOut {
     0%, 20% { opacity: 0; visibility: hidden; }
     25%, 75% { opacity: 1; visibility: visible; }
