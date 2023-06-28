@@ -10,29 +10,36 @@ let
   assets = ['/assets/css/index.css'],
   assetsImg = ['/assets/img/favicon.png']
 
+async function deleteOldCaches() {
+  const keys = await caches.keys();
+  const oldCacheKeys = keys.filter((key) => key !== nameStatic && key !== nameImg);
+  const deletePromises = oldCacheKeys.map((key) => caches.delete(key));
+  await Promise.all(deletePromises);
+}
 
-self.addEventListener('install', (ev) => {
+
+
+self.addEventListener('install', async (ev) => {
   console.log(`Version ${VERSION} installed`);
-  ev.waitUntil(
-    Promise.all([cacheAssets(), cacheImages()])
-      .then(() => {
-        console.log(`${nameStatic} and ${nameImg} have been updated`);
-      })
-      .catch((err) => {
-        console.warn(`Failed to update ${nameStatic} or ${nameImg}`);
-      })
-  );
+  try {
+    await cacheAssets();
+    await cacheImages();
+    console.log(`${nameStatic} and ${nameImg} have been updated`);
+  } catch (err) {
+    console.warn(`Failed to update ${nameStatic} or ${nameImg}`);
+  }
 });
 
-function cacheAssets() {
-  return caches.open(nameStatic)
-    .then((cache) => cache.addAll(assets));
+async function cacheAssets() {
+  const cache = await caches.open(nameStatic);
+  await cache.addAll(assets);
 }
 
-function cacheImages() {
-  return caches.open(nameImg)
-    .then((cache) => cache.addAll(assetsImg));
+async function cacheImages() {
+  const cache = await caches.open(nameImg);
+  await cache.addAll(assetsImg);
 }
+
   
 
 self.addEventListener('activate', (ev) => {
@@ -42,14 +49,6 @@ self.addEventListener('activate', (ev) => {
       .then((empties) => {})
   )
 })
-
-async function deleteOldCaches() {
-  const keys = await caches.keys();
-  const oldCacheKeys = keys.filter((key) => key !== nameStatic && key !== nameImg);
-  const deletePromises = oldCacheKeys.map((key) => caches.delete(key));
-  await Promise.all(deletePromises);
-}
-
 
 
 /*self.addEventListener('fetch', ev => {  
