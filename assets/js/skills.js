@@ -1,7 +1,7 @@
-export function SKILLS() {
-    return fetch('/data/skills.json')
-    .then(response => response.json())
-    .then(data => {
+export async function SKILLS() {
+    try {
+        const response = await fetch('/data/skills.json')
+        const data = await response.json()
 
         const $FRAGMENT = document.createDocumentFragment();
         const CATEGORIES = Object.keys(data);
@@ -25,9 +25,8 @@ export function SKILLS() {
             INSERT_CATEGORIE(category, $TEMPLATE, $CONTAINER)
         })
 
-        
-    })
-    .catch(error => {
-        console.error('Error:', error)
-    })
+    }
+    catch (error) {
+        console.error('Error:', error);
+    }
 }
