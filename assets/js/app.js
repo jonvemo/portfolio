@@ -19,13 +19,13 @@ const APP = {
     },
     offline(){
         const $PROBABLY = document.getElementById('isOnOff')
-        $PROBABLY.classList.toggle('isOnOff')
+        $PROBABLY.classList.add('isOnOff')
         $PROBABLY.querySelector('use').setAttribute('href', `#offline`)
         
     },
     online(){
         const $PROBABLY = document.getElementById('isOnOff')
-        $PROBABLY.classList.toggle('isOnOff')
+        $PROBABLY.classList.add('isOnOff')
         $PROBABLY.querySelector('use').setAttribute('href', `#online`)
     }
 }
