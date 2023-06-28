@@ -21,12 +21,20 @@ const APP = {
         const $PROBABLY = document.getElementById('isOnOff')
         $PROBABLY.classList.add('isOnOff')
         $PROBABLY.querySelector('use').setAttribute('href', `#offline`)
+
+        setTimeout(() => {
+            $PROBABLY.classList.remove('isOnOff');
+        }, 10000);
         
     },
     online(){
         const $PROBABLY = document.getElementById('isOnOff')
         $PROBABLY.classList.add('isOnOff')
         $PROBABLY.querySelector('use').setAttribute('href', `#online`)
+
+        setTimeout(() => {
+            $PROBABLY.classList.remove('isOnOff');
+        }, 10000);
     }
 }
 
