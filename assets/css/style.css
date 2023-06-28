@@ -39,11 +39,10 @@ body {
 
 /** Header */
 .header {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     width: 100%;
-    background-color: var(--transparent-bg);
-    backdrop-filter: blur(4px);
+    background-color: var(--bg);
     border: .1em var(--border);
     z-index: 1;
 
@@ -80,7 +79,6 @@ body {
     min-height: 80vh;
     background-image: var(--secundary-gradient);
     border: .1em var(--border);
-    border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
 }
 
 /** MODULES */
@@ -304,6 +302,9 @@ textarea {resize: none;}
     #skip__navegation {
         top: -1000px;
     }
+    .main {
+        border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
+    }
     .module {
         width: 80vw;
         min-height: 80vh;
@@ -311,7 +312,6 @@ textarea {resize: none;}
         padding: var(--size-large);
         border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
     }
-
     .home {
         grid-template-areas: "profile" "stats" "skills";
     }
