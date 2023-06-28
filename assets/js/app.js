@@ -5,8 +5,9 @@ const APP = {
     init() {
         // APP.registerSW()
 
-        window.addEventListener('online', APP.goneOnline)
-        window.addEventListener('offline', APP.goneOffline)
+        window.addEventListener('offline', APP.offline)
+        window.addEventListener('online', APP.online)
+          
 
     },
     registerSW(){
@@ -16,17 +17,16 @@ const APP = {
             .catch( err=>console.warn(`%cError ${err}`, 'color: red; font-size: 1.5rem; font-weight: bold;') )
         }
     },
-    goneOnline(){
+    offline(){
         const $PROBABLY = document.getElementById('isOnOff')
-        
-        !$PROBABLY.classList.contains('isOnOff') ? $PROBABLY.classList.toggle('isOnOff') : ''
-        isOnOff__content.textContent = 'Online'
-    },
-    goneOffline(){
-        const $PROBABLY = document.getElementById('isOnOff')
-
         $PROBABLY.classList.toggle('isOnOff')
-        isOnOff__content.textContent = 'Offline'
+        $PROBABLY.querySelector('use').setAttribute('href', `#offline`)
+        
+    },
+    online(){
+        const $PROBABLY = document.getElementById('isOnOff')
+        $PROBABLY.classList.toggle('isOnOff')
+        $PROBABLY.querySelector('use').setAttribute('href', `#online`)
     }
 }
 

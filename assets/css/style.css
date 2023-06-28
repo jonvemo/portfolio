@@ -256,16 +256,8 @@ textarea {resize: none;}
 }
 #isOnOff {
     position: fixed;
-    top: 0;
-    display: grid;
-    place-content: center;
-    width: 100%;
-}
-.isOnOff__content {
-    padding: var(--size-small);
-    background-color: var(--bg);
-    border-radius: var(--size-smaller);
-    border: .1em var(--border);
+    left: var(--size-small);
+    bottom: calc( var(--size-medium) + var(--size-small) );
 }
 
 /** PC */
