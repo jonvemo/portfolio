@@ -11,61 +11,53 @@ let
   assetsImg = ['/assets/img/favicon.png']
 
 
-self.addEventListener('install', ev => {
-  console.log(`Version ${VERSION} installed`)
-  // Build a CACHE
+self.addEventListener('install', (ev) => {
+  console.log(`Version ${VERSION} installed`);
   ev.waitUntil(
-    caches.open(nameStatic).then( cache => {
-      cache.addAll(assets).then(
-        () => {
-          console.log(`${nameStatic} has been updated`)
-        },
-        err => {
-          console.warn(`Failed to update ${nameStatic}`)
-        }
-      )
-    })
-    .then( () => {
-      caches.open(nameImg).then( cache => {
-        cache.addAll(assetsImg).then(
-          () => {
-            console.log(`${nameImg} has been updated`)
-          },
-          err => {
-            console.warn(`Failed to update ${nameStatic}`)
-          }
-        )
+    Promise.all([cacheAssets(), cacheImages()])
+      .then(() => {
+        console.log(`${nameStatic} and ${nameImg} have been updated`);
       })
-    })
+      .catch((err) => {
+        console.warn(`Failed to update ${nameStatic} or ${nameImg}`);
+      })
+  );
+});
+
+function cacheAssets() {
+  return caches.open(nameStatic)
+    .then((cache) => cache.addAll(assets));
+}
+
+function cacheImages() {
+  return caches.open(nameImg)
+    .then((cache) => cache.addAll(assetsImg));
+}
+  
+
+self.addEventListener('activate', (ev) => {
+  console.log('Activated');
+  ev.waitUntil(
+    deleteOldCaches()
+      .then((empties) => {})
   )
 })
 
-self.addEventListener('activate', ev => {
-  console.log('Activated')
-  // Delete Old Versions of Caches
-  ev.waitUntil(
-    caches.keys().then( keys => {
-      return Promise.all(
-        keys
-          .filter(key => {
-            if(key != nameStatic && key != nameImg) {
-              return true
-            }
-          })
-          .map(key => caches.delete(key))
-      ).then( empties => {
-        // s
-      })
-    })
-  )
-})
+async function deleteOldCaches() {
+  const keys = await caches.keys();
+  const oldCacheKeys = keys.filter((key) => key !== nameStatic && key !== nameImg);
+  const deletePromises = oldCacheKeys.map((key) => caches.delete(key));
+  await Promise.all(deletePromises);
+}
 
-self.addEventListener('fetch', ev => {  
+
+
+/*self.addEventListener('fetch', ev => {  
   ev.respondWith(
     caches.match(ev.request).then( cacheRes => {
       return (
         cacheRes ||
-        fetch(ev.request).then( fetchResponse => {
+        fetch(ev.request).then( async fetchResponse => {
           let type = fetchResponse.headers.get('content-type')
           if (
             (type && type.match(/^text\/css/i)) ||
@@ -105,4 +97,4 @@ self.addEventListener('fetch', ev => {
       )
     })
   )
-})
+})*/

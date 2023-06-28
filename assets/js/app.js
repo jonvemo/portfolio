@@ -3,12 +3,10 @@ const APP = {
     cacheName: 'CACHE',
     isOnline: 'onLine' in navigator && navigator.onLine,
     init() {
-        // APP.registerSW()
+        APP.registerSW()
 
         window.addEventListener('offline', APP.offline)
         window.addEventListener('online', APP.online)
-          
-
     },
     registerSW(){
         if('serviceWorker' in navigator){
