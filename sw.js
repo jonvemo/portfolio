@@ -39,7 +39,7 @@ function getCacheName(type, url) {
     'image': nameImg,
     'font': nameFont,
     'text/css': nameCSS,
-    'application/javascript': nameDynamic
+    'application/javascript': nameJs,
   }
 
   for (const key in cacheMap) {
@@ -57,6 +57,13 @@ async function saveToCache(cacheName, request, response) {
   return response;
 }
 
+async function loadFromCache(request) {
+  if (!navigator.onLine) {
+    const cacheRes = await caches.match(request)
+    if (cacheRes) return cacheRes
+  }
+}
+
   
 self.addEventListener('install', async (ev) => {
   console.log(`Version ${VERSION} installed`);
@@ -70,8 +77,15 @@ self.addEventListener('activate', (ev) => {
 
 
 self.addEventListener('fetch', async (ev) => {
-  const cacheRes = await caches.match(ev.request);
+  const cacheRes = await caches.match(ev.request)
   if (cacheRes) return cacheRes
+
+  try {
+    await loadFromCache(ev.request);
+  }
+  catch (error) {
+    console.error(`Error up load from cache: ${error}`);
+  }
 
   try {
     const fetchResponse = await fetch(ev.request);
