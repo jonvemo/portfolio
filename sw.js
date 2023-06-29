@@ -1,24 +1,30 @@
 const VERSION = 3
 let 
-  nameDynamic = `Dynamic CACHE`,
+  nameDynamic = `Dynamic CACHE-${VERSION}`,
   nameStatic = `Static CACHE-${VERSION}`,
-  nameCSS = `CSS CACHE-${VERSION}`,
-  nameFont = `Font CACHE-${VERSION}`,
   nameImg = `Image CACHE-${VERSION}`
+  nameFont = `Font CACHE-${VERSION}`,
+  nameCSS = `CSS CACHE-${VERSION}`,
+  nameJs = `Js CACHE-${VERSION}`
 
 let 
   assets = ['/assets/css/index.css'],
   assetsImg = ['/assets/img/favicon.png']
 
 
-async function cacheAssets() {
-  const cache = await caches.open(nameStatic)
-  await cache.addAll(assets)
-}
+async function cacheAssetsAndImages() {
+  try {
+    const cacheStatic = await caches.open(nameStatic);
+    const cacheImg = await caches.open(nameImg);
 
-async function cacheImages() {
-  const cache = await caches.open(nameImg)
-  await cache.addAll(assetsImg)
+    await cacheStatic.addAll(assets);
+    await cacheImg.addAll(assetsImg);
+
+    console.log(`${nameStatic} and ${nameImg} have been updated`);
+  } 
+  catch (err) {
+    console.warn(`Failed to update ${nameStatic} or ${nameImg}`);
+  }
 }
 
 async function deleteOldCaches() {
@@ -28,16 +34,33 @@ async function deleteOldCaches() {
   await Promise.all(deletePromises)
 }
 
+function getCacheName(type, url) {
+  const cacheMap = {
+    'image': nameImg,
+    'font': nameFont,
+    'text/css': nameCSS,
+    'application/javascript': nameDynamic
+  }
+
+  for (const key in cacheMap) {
+    if (type && type.match(new RegExp('^' + key, 'i'))) return cacheMap[key]
+  }
+
+  if (url.match(/fonts.googleapis.com/i) || url.match(/fonts.gstatic.com/i)) return nameCSS
+
+  return nameDynamic;
+}
+
+async function saveToCache(cacheName, request, response) {
+  const cache = await caches.open(cacheName);
+  cache.put(request, response.clone());
+  return response;
+}
+
   
 self.addEventListener('install', async (ev) => {
   console.log(`Version ${VERSION} installed`);
-  try {
-    await cacheAssets()
-    await cacheImages()
-    console.log(`${nameStatic} and ${nameImg} have been updated`)
-  } catch (err) {
-    console.warn(`Failed to update ${nameStatic} or ${nameImg}`)
-  }
+  await cacheAssetsAndImages()
 })
 
 self.addEventListener('activate', (ev) => {
@@ -46,49 +69,18 @@ self.addEventListener('activate', (ev) => {
 })
 
 
-/*self.addEventListener('fetch', ev => {  
-  ev.respondWith(
-    caches.match(ev.request).then( cacheRes => {
-      return (
-        cacheRes ||
-        fetch(ev.request).then( async fetchResponse => {
-          let type = fetchResponse.headers.get('content-type')
-          if (
-            (type && type.match(/^text\/css/i)) ||
-            ev.request.url.match(/fonts.googleapis.com/i)
-          ) {
-            // CSS to save in dynamic cache
-            console.log(`Save a CSS file ${ev.request.url}`)
-            return caches.open(nameCSS).then( cache => {
-              cache.put(ev.request, fetchResponse.clone())
-              return fetchResponse
-            })
-          } else if (
-            (type && type.match(/^font\//i)) ||
-            ev.request.url.match(/fonts.gstatic.com/i)
-          ) {
-            console.log(`Save a FONT file ${ev.request.url}`)
-            return caches.open(nameFont).then( cache => {
-              cache.put(ev.request, fetchResponse.clone())
-              return fetchResponse
-            })
-          } else if (type && type.match(/^image\//i)) {
-            // Save in image cache
-            console.log(`Save an IMAGE file ${ev.request.url}`)
-            return caches.open(nameImg).then( cache => {
-              cache.put(ev.request, fetchResponse.clone())
-              return fetchResponse
-            })
-          } else {
-            // Save in dynamic cache
-            console.log(`Save an OTHER file ${ev.request.url}`)
-            return caches.open(nameDynamic).then( cache => {
-              cache.put(ev.request, fetchResponse.clone())
-              return fetchResponse
-            })
-          }
-        })
-      )
-    })
-  )
-})*/
+self.addEventListener('fetch', async (ev) => {
+  const cacheRes = await caches.match(ev.request);
+  if (cacheRes) return cacheRes
+
+  try {
+    const fetchResponse = await fetch(ev.request);
+    const type = fetchResponse.headers.get('content-type');
+    const cacheName = getCacheName(type, ev.request.url);
+    console.log(`Save a ${type.toUpperCase()} file ${ev.request.url}`);
+    return saveToCache(cacheName, ev.request, fetchResponse);
+  }
+  catch (error) {
+    console.error(`Fetch failed: ${error}`)  
+  }
+})
