@@ -11,7 +11,7 @@ self.addEventListener('install', (ev) => {
 self.addEventListener('activate', (ev) => {
   console.log('Activated')
   ev.waitUntil(
-    caches.keys().then((keys) => { return Promise.all( keys.filter((key) => key != CACHE_STATIC).map((nm) => caches.delete(nm)) ) })
+    caches.keys().then((keys) => { return Promise.all( keys.filter((key) => key != CACHE_NAME).map((nm) => caches.delete(nm)) ) })
   )
 })
 
