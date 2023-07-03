@@ -2,7 +2,7 @@ const VERSION = 3
 const CACHE_NAME = `CACHE-${VERSION}`
 const CACHE_LIST = ['/assets/css/index.css,/page/404.html','/assets/img/favicon.png']
   
-self.addEventListener('install', async (ev) => {
+self.addEventListener('install', (ev) => {
   ev.waitUntil(
     caches.open(CACHE_NAME).then((cache) => { cache.addAll(CACHE_LIST) })
   )
