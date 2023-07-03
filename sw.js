@@ -1,100 +1,87 @@
 const VERSION = 3
-let 
-  nameDynamic = `Dynamic CACHE-${VERSION}`,
-  nameStatic = `Static CACHE-${VERSION}`,
-  nameImg = `Image CACHE-${VERSION}`
-  nameFont = `Font CACHE-${VERSION}`,
-  nameCSS = `CSS CACHE-${VERSION}`,
-  nameJs = `Js CACHE-${VERSION}`
-
-let 
-  assets = ['/assets/css/index.css'],
-  assetsImg = ['/assets/img/favicon.png']
-
-
-async function cacheAssetsAndImages() {
-  try {
-    const cacheStatic = await caches.open(nameStatic);
-    const cacheImg = await caches.open(nameImg);
-
-    await cacheStatic.addAll(assets);
-    await cacheImg.addAll(assetsImg);
-
-    console.log(`${nameStatic} and ${nameImg} have been updated`);
-  } 
-  catch (err) {
-    console.warn(`Failed to update ${nameStatic} or ${nameImg}`);
-  }
-}
-
-async function deleteOldCaches() {
-  const keys = await caches.keys()
-  const oldCacheKeys = keys.filter((key) => key !== nameStatic && key !== nameImg)
-  const deletePromises = oldCacheKeys.map((key) => caches.delete(key))
-  await Promise.all(deletePromises)
-}
-
-function getCacheName(type, url) {
-  const cacheMap = {
-    'image': nameImg,
-    'font': nameFont,
-    'text/css': nameCSS,
-    'application/javascript': nameJs,
-  }
-
-  for (const key in cacheMap) {
-    if (type && type.match(new RegExp('^' + key, 'i'))) return cacheMap[key]
-  }
-
-  if (url.match(/fonts.googleapis.com/i) || url.match(/fonts.gstatic.com/i)) return nameCSS
-
-  return nameDynamic;
-}
-
-async function saveToCache(cacheName, request, response) {
-  const cache = await caches.open(cacheName);
-  cache.put(request, response.clone());
-  return response;
-}
-
-async function loadFromCache(request) {
-  if (!navigator.onLine) {
-    const cacheRes = await caches.match(request)
-    if (cacheRes) return cacheRes
-  }
-}
-
+const CACHE_NAME = `CACHE-${VERSION}`
+const CACHE_LIST = ['/assets/css/index.css,/page/404.html','/assets/img/favicon.png']
   
 self.addEventListener('install', async (ev) => {
-  console.log(`Version ${VERSION} installed`);
-  await cacheAssetsAndImages()
+  ev.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => { cache.addAll(CACHE_LIST) })
+  )
 })
 
 self.addEventListener('activate', (ev) => {
   console.log('Activated')
-  ev.waitUntil( deleteOldCaches().then(() => { console.log('Old cache deleted') }) )
+  ev.waitUntil(
+    caches.keys().then((keys) => { return Promise.all( keys.filter((key) => key != CACHE_STATIC).map((nm) => caches.delete(nm)) ) })
+  )
 })
 
-
-self.addEventListener('fetch', async (ev) => {
-  const cacheRes = await caches.match(ev.request)
-  if (cacheRes) return cacheRes
-
-  try {
-    await loadFromCache(ev.request);
-  }
-  catch (error) {
-    console.error(`Error up load from cache: ${error}`);
-  }
-
-  try {
-    const fetchResponse = await fetch(ev.request);
-    const type = fetchResponse.headers.get('content-type');
-    const cacheName = getCacheName(type, ev.request.url);
-    console.log(`Save a ${type.toUpperCase()} file ${ev.request.url}`);
-    return saveToCache(cacheName, ev.request, fetchResponse);
-  }
-  catch (error) {
-    console.error(`Fetch failed: ${error}`)  
-  }
+self.addEventListener('fetch', (ev) => {
+  const isOnline = navigator.onLine
+  isOnline ? ev.respondWith(networkRevalidateAndCache(ev)) : ev.respondWith(cacheOnly(ev))
 })
+
+function cacheOnly(ev) {
+  // Return what is in the cache
+  return caches.match(ev.request);
+}
+async function cacheFirst(ev) {
+  try {
+    // Return from cache or fetch if not in cache
+    const CACHE_RESPONSE = await caches.match(ev.request)
+    // Return CACHE_RESPONSE if not null
+    return CACHE_RESPONSE || fetch(ev.request)
+  } catch (error) {
+    console.error("cacheFirst error:", error)
+    throw error
+  }
+}
+function networkOnly(ev) {
+  // Return fetch response
+  return fetch(ev.request);
+}
+async function networkFirst(ev) {
+  try {
+    // Try fetch and fallback on cache
+    const FETCH_RESPONSE = await fetch(ev.request)
+    if (FETCH_RESPONSE.ok) return FETCH_RESPONSE
+    return caches.match(ev.request)
+  } catch (error) {
+    console.error("networkFirst error:", error)
+    throw error
+  }
+}
+
+async function staleWhileRevalidate(ev) {
+  try {
+    // Check cache and fallback on fetch for response
+    // Always attempt to fetch a new copy and update the cache
+    const CACHE_RESPONSE = await caches.match(ev.request)
+    const FETCH_RESPONSE = await fetch(ev.request)
+    if (FETCH_RESPONSE.ok) {
+      const CACHE = await caches.open(CACHE_NAME)
+      CACHE.put(ev.request, FETCH_RESPONSE.clone())
+      return FETCH_RESPONSE
+    }
+    return CACHE_RESPONSE || FETCH_RESPONSE
+  } catch (error) {
+    console.error("staleWhileRevalidate error:", error)
+    throw error
+  }
+}
+
+async function networkRevalidateAndCache(ev) {
+  try {
+    // Try fetch first and fallback on cache
+    // Update cache if fetch was successful
+    const FETCH_RESPONSE = await fetch(ev.request, { mode: 'cors', credentials: 'omit' })
+    if (FETCH_RESPONSE.ok) {
+      const CACHE = await caches.open(CACHE_NAME)
+      CACHE.put(ev.request, FETCH_RESPONSE.clone())
+      return FETCH_RESPONSE
+    }
+    return caches.match(ev.request)
+  } catch (error) {
+    console.error("networkRevalidateAndCache error:", error)
+    throw error
+  }
+}

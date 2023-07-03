@@ -1,6 +1,5 @@
 const APP = {
     SW: null,
-    cacheName: 'CACHE',
     isOnline: 'onLine' in navigator && navigator.onLine,
     init() {
         APP.registerSW()
