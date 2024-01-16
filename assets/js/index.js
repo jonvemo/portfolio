@@ -1,9 +1,15 @@
 import { getHTML } from "/assets/js/include.js"
 import { SKILLS } from "/assets/js/skills.js"
 import { SOCIALMEDIA } from "/assets/js/social-links.js"
+import { IMG_ERROR } from "/assets/js/error.js"
 
 document.addEventListener('DOMContentLoaded', ev=>{
     const $MAIN = document.getElementById('main')
+
+    const imgs = document.querySelectorAll('img')
+    imgs.forEach(img => img.addEventListener('error',ev => {
+        IMG_ERROR(img)
+    }))
 
     document.addEventListener('click',ev=>{
         const TARGET = ev.target

@@ -10,7 +10,6 @@ export const SOCIALMEDIA = () => {
         ],
         LINKS_HIDDEN = [
             'https://instagram.com/jonvemodev',
-            'https://facebook.com/jonvemodeveloper'
         ], 
         $TEMPLATE_SOCIAL = document.getElementById('template__social').content,
         $TEMPLATE_SOCIAL_PLUS = document.getElementById('template__social__plus').content,
