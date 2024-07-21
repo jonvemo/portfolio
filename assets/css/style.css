@@ -265,10 +265,17 @@ textarea {resize: none;}
     25%, 75% { opacity: 1; visibility: visible; }
     80%, 100% { opacity: 0; visibility: hidden; }
 }
-
+/** Tablet */
+@media (min-width: 768px) {
+    .profile {
+        gap: 0 var(--size-large);
+        grid-template-areas: "logo presentation";
+        grid-template-columns: 16em 1fr;
+    }    
+}
 /** PC */
 @media (min-width: 1280px) {
-    body {
+     body {
         display: grid;
         place-content: center;
         grid-template-areas:"header" "main";
@@ -313,13 +320,14 @@ textarea {resize: none;}
         padding: var(--size-large);
         border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
     }
-    .home {
-        grid-template-areas: "profile" "stats" "skills";
-    }
-    .profile {
+   .profile {
         gap: 0 var(--size-large);
         grid-template-areas: "logo presentation" "logo links";
         grid-template-columns: 16em 1fr;
+    }
+    
+    .home {
+        grid-template-areas: "profile" "stats" "skills";
     }
     #isOnOff {
         bottom: var(--size-small);
