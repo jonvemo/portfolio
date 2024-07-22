@@ -132,6 +132,8 @@ body {
     display: flex;
     flex-flow: row wrap;
     gap: var(--size-tiny);
+    align-items: center;
+    justify-content: center;
 }
 .social__link, .navegator__link{
     position: relative;
@@ -269,9 +271,12 @@ textarea {resize: none;}
 @media (min-width: 768px) {
     .profile {
         gap: 0 var(--size-large);
-        grid-template-areas: "logo presentation";
+        grid-template-areas: "logo presentation" "logo links";
         grid-template-columns: 16em 1fr;
-    }    
+    }
+    .social {
+        justify-content: start;
+    }
 }
 /** PC */
 @media (min-width: 1280px) {
@@ -320,12 +325,6 @@ textarea {resize: none;}
         padding: var(--size-large);
         border-radius: var(--size-smaller) 0 var(--size-smaller) var(--size-smaller);
     }
-   .profile {
-        gap: 0 var(--size-large);
-        grid-template-areas: "logo presentation" "logo links";
-        grid-template-columns: 16em 1fr;
-    }
-    
     .home {
         grid-template-areas: "profile" "stats" "skills";
     }
