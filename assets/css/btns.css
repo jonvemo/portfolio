@@ -1,9 +1,9 @@
 .btn {
     background-color: var(--main-bg); background-image: var(--secundary-gradient); border-radius: var(--size-small); border: .1em var(--border);
     
-    &:is(:hover,:active,:focus):not(:disabled) {background-color: var(--primary-gradient); color: var(--main-color);}
-    &:is(:hover,:active,:focus):not(:disabled) svg {fill: var(--main-color);}
-    &:focus-visible {outline: var(--size-xtiny) solid var(--main-color); outline-offset: 0;}
+    &:is(:hover,:active,:focus):not(:disabled) {background-color: var(--primary-gradient); color: var(--color);}
+    &:is(:hover,:active,:focus):not(:disabled) svg {fill: var(--color);}
+    &:focus-visible {outline: var(--size-xtiny) solid var(--color); outline-offset: 0;}
     &:disabled {filter: grayscale(1);}
 
     &.btn__small {display: grid; place-content: center; width: var(--size-medium); height: var(--size-medium);}

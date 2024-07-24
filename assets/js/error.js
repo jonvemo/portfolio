@@ -1,4 +1,4 @@
-function imageNotFound(img){
-    img.src = '/assets/img/logo-error.svg'
+function imageNotFound(img) {
+  img.src = '/assets/img/logo-error.svg'
 }
-export {imageNotFound as IMG_ERROR}
+export { imageNotFound as IMG_ERROR }

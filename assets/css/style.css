@@ -208,7 +208,7 @@ input[type="radio"],input[type="checkbox"] {
         background-color: var(--accent);
         border: .1em var(--border);
     }
-    &:focus-visible {outline: 4px solid var(--main-color); outline-offset: 0;}
+    &:focus-visible {outline: 4px solid var(--color); outline-offset: 0;}
 }
 
 input[type="text"],input[type="email"],textarea {
@@ -218,7 +218,7 @@ input[type="text"],input[type="email"],textarea {
     border-radius: var(--size-tiny);
     border: .1em var(--border);
 
-    &:focus-visible {outline: .25em solid var(--main-color); outline-offset: 0;}
+    &:focus-visible {outline: .25em solid var(--color); outline-offset: 0;}
     &:placeholder-shown {color: var(--accent);}
     &:not(:placeholder-shown):focus {
         &:invalid {outline: .25em solid red;} 
@@ -228,7 +228,7 @@ input[type="text"],input[type="email"],textarea {
 } 
 :is(textarea,input,select):autofill {
     border: .1em var(--border);
-    -webkit-text-fill-color: var(--main-color);
+    -webkit-text-fill-color: var(--color);
     box-shadow: 0 0 0 100px var(--bg) inset;
 }
 textarea {resize: none;}
