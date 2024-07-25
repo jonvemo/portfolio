@@ -88,7 +88,7 @@ body {
     min-height: calc(100vh - var(--size-medium));
     padding: var(--size-small);
     background-image: var(--secundary-gradient);
-    gap: var(--size-large);
+    row-gap: var(--size-large);
 }
 
 /** HOME */
