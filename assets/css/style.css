@@ -203,6 +203,12 @@ body {
 
 /* input:autofill,textarea:autofill{background-color: var(--main-bg);} */
 /** CONTACT */
+.contact {
+    display: grid;
+    align-content: center;
+    gap: var(--size-smaller);
+}
+
 input[type="radio"],input[type="checkbox"] {
     appearance: none;
     display: grid;
@@ -254,6 +260,9 @@ textarea {resize: none;}
     gap: var(--size-tiny);
     align-items: center;
     justify-content: space-between;
+}
+.contact__item:has(input,textarea:is(:required)) label svg {
+    fill: var(--accent);
 }
 
 /** 404 */
