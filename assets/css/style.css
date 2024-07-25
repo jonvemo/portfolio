@@ -12,8 +12,9 @@ caption,thead th {background-color: var(--bg);}
 tr {display: flex; flex-flow: row wrap;}
 tr:nth-child(odd) {background-color: var(--main-bg);}
 tr:nth-child(even) {background-color: var(--bg);}
+th {text-align: left;}
+th,td {flex: 1;}
 td:first-child {font-weight: bold;}
-td {flex: 1;}
 
 .flex {display: flex; gap: var(--size-smaller);}
 .grid {display: grid; gap: var(--size-smaller);}
