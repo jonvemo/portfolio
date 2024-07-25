@@ -352,7 +352,7 @@ textarea {resize: none;}
 /** FULL HD 1920 - 55 (sidebar edge, opera) */
 @media (1865px <= width) {
     .home {
-        grid-template-areas: "profile stats" "profile stats" "skills skills";
+        grid-template-areas: "profile stats" "skills skills";
         grid-template-columns: 80% 20%;
     }
 }
