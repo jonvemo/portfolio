@@ -3,3 +3,5 @@ Disallow: /
 
 Allow: /$
 Allow: /assets/
+Allow: /assets/css/
+Allow: /aasets/js/
