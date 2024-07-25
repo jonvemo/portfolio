@@ -101,13 +101,16 @@ body {
 /** PROFILE */
 .profile {
     display: grid;
-    grid-template-areas: "presentation" "logo";
-    gap: var(--size-large);
+    grid-template-areas: "presentation" "logo" "links";
+    gap: var(--size-small);
 }
-.profile__item:has(.profile__img) {
+.profile__logo {
     grid-area: logo;
     display: grid;
     place-content: center;
+}
+.profile__info {
+    grid-area: presentation;
 }
 .profile__img {
     display: block;
@@ -130,6 +133,7 @@ body {
 
 /** SOCIAL */
 .social {
+    grid-area: links;
     display: flex;
     flex-flow: row wrap;
     gap: var(--size-tiny);
@@ -165,6 +169,9 @@ body {
 }
 
 /** SKILLS */
+.skills {
+    grid-area: skills;
+}
 .skills__item {
     display: flex;
     flex-flow: column;
@@ -336,8 +343,8 @@ textarea {resize: none;}
 /** FULL HD 1920 - 55 (sidebar edge, opera) */
 @media (1865px <= width) {
     .home {
-        grid-template-areas: "profile stats" "skills stats";
-        grid-template-columns: calc(80% - var(--size-smaller)) calc(20% - var(--size-smaller));
+        grid-template-areas: "profile stats" "profile stats" "skills skills";
+        grid-template-columns: 80% 20%;
     }
 }
 /** 2K */
