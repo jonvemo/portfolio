@@ -1,7 +1,7 @@
 const VERSION = 3
 const CACHE_NAME = `CACHE-${VERSION}`
-const CACHE_LIST = ['/assets/css/index.css,/page/404.html','/assets/img/favicon.png']
-  
+const CACHE_LIST = ['/assets/css/index.css,/page/404.html', '/assets/img/favicon/favicon.svg', '/assets/img/favicon/google-touch-icon.png']
+
 self.addEventListener('install', (ev) => {
   ev.waitUntil(
     caches.open(CACHE_NAME).then((cache) => { cache.addAll(CACHE_LIST) })
@@ -11,7 +11,7 @@ self.addEventListener('install', (ev) => {
 self.addEventListener('activate', (ev) => {
   console.log('Activated')
   ev.waitUntil(
-    caches.keys().then((keys) => { return Promise.all( keys.filter((key) => key != CACHE_NAME).map((nm) => caches.delete(nm)) ) })
+    caches.keys().then((keys) => { return Promise.all(keys.filter((key) => key != CACHE_NAME).map((nm) => caches.delete(nm))) })
   )
 })
 
