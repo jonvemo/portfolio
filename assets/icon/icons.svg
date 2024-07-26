@@ -1,4 +1,23 @@
 <svg>
+<style>
+
+#logo {
+  --black: #1c1e26;
+}
+
+@media (prefers-color-scheme: light) {
+
+  #logo {
+    --white: #fff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #logo {
+    --white: #f5f5f5;
+  }
+}
+</style>
 <!-- LOGOS -->
 <defs>
 <symbol id='logo' viewBox='0 0 1024 1024'>
