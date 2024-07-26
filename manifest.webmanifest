@@ -10,9 +10,9 @@
     "fullscreen",
     "standalone"
   ],
-  "start_url": "/",
-  "scope": "/",
-  "id": "/",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
   "lang": "en",
   "icons": [
     {
