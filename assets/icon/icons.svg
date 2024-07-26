@@ -3,9 +3,11 @@
 <defs>
 <symbol id='logo' viewBox='0 0 1024 1024'>
     <style>
-    :root{color-scheme: light dark;}
-    --black: #1c1e26;
-
+    :root{
+        color-scheme: light dark;
+        --black: #1c1e26;
+    }
+    
     @media (prefers-color-scheme: light) {
         --white: #fff;
     }
