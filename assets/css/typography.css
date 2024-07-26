@@ -20,7 +20,7 @@
   font-weight: 400;
   src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-Regular.woff') format('woff');
   font-display: swap;
-  unicode-range: U+000-U+0FF;
+  unicode-range: U+0080-U+00FF;
 }
 
 @font-face {
