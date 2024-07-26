@@ -1,2 +1,105 @@
-@font-face{font-family:'Nunito';font-style:normal;font-weight:400;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-Regular.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:400;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-Italic.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:normal;font-weight:275;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-ExtraLight.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:275;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-ExtraLightItalic.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:normal;font-weight:300;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-Light.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:300;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-LightItalic.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:normal;font-weight:600;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-SemiBold.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:600;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-SemiBoldItalic.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:normal;font-weight:700;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-Bold.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:700;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-BoldItalic.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:normal;font-weight:800;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-ExtraBold.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:800;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-ExtraBoldItalic.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:normal;font-weight:900;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-Black.woff') format('woff');font-display:swap}@font-face{font-family:'Nunito';font-style:italic;font-weight:900;src:url('https://fonts.cdnfonts.com/s/15604/Nunito-BlackItalic.woff') format('woff');font-display:swap}
-* {font:16px Nunito; word-wrap:break-word; color: var(--color); box-sizing:border-box; scroll-behavior: smooth;}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-Light.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 300;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-LightItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-Regular.woff') format('woff');
+  font-display: swap;
+  unicode-range: U+000-U+0FF;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-SemiBold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 600;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-SemiBoldItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-Bold.woff') format('woff');
+  font-display: swap;
+  unicode-range: U+000-U+0FF;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 700;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-BoldItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-ExtraBold.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 800;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-ExtraBoldItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-Black.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 900;
+  src: local("Nunito"), url('https://fonts.cdnfonts.com/s/15604/Nunito-BlackItalic.woff') format('woff');
+  font-display: swap;
+}
+
+* {
+  font: 16px Nunito;
+  word-wrap: break-word;
+  color: var(--color);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
