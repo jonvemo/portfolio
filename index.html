@@ -104,8 +104,26 @@
         <section class="module home" id="section">
             <div class="profile">
                 <div class="profile__item profile__logo">
-                    <svg class="profile__img" width="1024" height="1024" title="Avatar">
+                    <svg class="profile__img" width="1024" height="1024">
                         <title>Avatar</title>
+                        <style>
+                            :root {
+                                color-scheme: light dark;
+                                --primary-icon-color: #1c1e26;
+                            }
+
+                           @media (prefers-color-scheme: light) {
+                                :root {
+                                    --secundary-icon-color: #fff;
+                                }
+                            }
+
+                            @media (prefers-color-scheme: dark) {
+                                :root {
+                                    --secundary-icon-color: #f5f5f5;
+                                }
+                            }
+                        </style>
                         <use href="/assets/icon/icons.svg#logo"></use>
                     </svg>
                 </div>
