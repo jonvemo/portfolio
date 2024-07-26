@@ -12,7 +12,7 @@
     @media (prefers-color-scheme: dark) {
         :root {--white: #f5f5f5;}
     }
-    </style>
+</style>
 
 <!-- LOGOS -->
 <defs>
