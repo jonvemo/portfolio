@@ -1,6 +1,6 @@
 const VERSION = 3
 const CACHE_NAME = `CACHE-${VERSION}`
-const CACHE_LIST = ['/assets/css/index.css,/page/404.html', '/assets/img/favicon/favicon.svg', '/assets/img/favicon/google-touch-icon.png']
+const CACHE_LIST = ['/assets/fonts/Nunito-Regular.woff2', '/assets/fonts/Nunito-Bold.woff2', '/assets/css/index.css', '/assets/img/favicon/favicon.svg', '/assets/img/favicon/google-touch-icon.png', '/page/404.html']
 
 self.addEventListener('install', (ev) => {
   ev.waitUntil(
