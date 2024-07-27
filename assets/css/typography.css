@@ -18,7 +18,7 @@
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  src: local("Nunito"), url('/assets/fonts/Nunito-Bold.woff2') format('woff2');
+  src: local("Nunito"), url('/assets/fonts/Nunito-Regular.woff2') format('woff2'), url('https://fonts.cdnfonts.com/s/15604px/Nunito-Regular;.woff') format('woff');
   font-display: swap;
   unicode-range: U+00-U+0FF;
 }
