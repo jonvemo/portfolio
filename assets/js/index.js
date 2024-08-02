@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', ev => {
         url = TARGET.href
       }
 
-      getHTML(url,
+      getHTML(
         {
+          url: '/page/404.html',
           success: (html) => {
             $MAIN.innerHTML = html
           },
