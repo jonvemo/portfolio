@@ -1,0 +1,128 @@
+<section class="module home" id="section">
+    <div class="profile">
+        <div class="profile__item profile__logo">
+            <svg class="profile__img" width="1024" height="1024">
+                <title>Avatar</title>
+                <use href="/assets/icon/icons.svg#logo"></use>
+            </svg>
+        </div>
+        <div class="profile__item profile__info">
+            <h1 class="profile__title title">Jonvemo : John Verdugo Montañez</h1>
+            <div class="profile__description">
+                <p class="profile__paragraph">Hello, I'm <strong>Jonvemo</strong>. And this is my <strong>Portfolio</strong>.
+                    A Frontend Developer from Colombia, nice to meet you!
+                </p>
+                <p class="profile__paragraph">Freelancer at your disposition, I can work for you on different types of projects
+                    I like minimalist designs, animals, anime, and Asian culture
+                </p>
+            </div>
+        </div>
+        <div class="social" id="social">
+            <noscript>
+                <p>You need JavaScript enabled to view this section.</p>
+            </noscript>
+
+            <template id="template__social">
+                <a target="_blank" class="social__link btn  btn__large">
+                    <svg width="1.5rem" height="1.5rem">
+                        <use></use>
+                    </svg>
+                    <span class="social__span"></span>
+                </a>
+            </template>
+          
+            <div class="social hidden" id="social__hidden">
+                <template id="template__social__plus">
+                    <a target="_blank" class="social__link btn  btn__large">
+                        <svg width="1.5rem" height="1.5rem">
+                            <use></use>
+                        </svg>
+                        <span class="social__span"></span>
+                    </a>
+                </template>
+            </div>
+      
+            <button aria-label="Show more links" class="social__btn btn  btn__small" id="toggle__social__btn">
+                <svg width="1.5rem" height="1.5rem">
+                    <use href="/assets/icon/icons.svg#caret__right" id="change__icon"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="stats">
+        <div class="stats__item">
+            <table class="table">
+                <caption class="table__capption stats__title">
+                    John Verdugo Montañez
+                    <svg width="1.5rem" height="1.5rem">
+                        <use href="/assets/icon/icons.svg#user"></use>
+                    </svg>
+                </caption>
+                <tbody class="table__body">
+                    <tr class="table__row">
+                        <th class="table__cell">Age</th>
+                        <td class="table__cell">21</td> <!-- TODO Automatizar -->
+                    </tr>
+                    <tr class="table__row">
+                        <th class="table__cell">Nacionality</th>
+                        <td class="table__cell">Colombia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="skills">
+        <div class="skills__item">
+            <noscript>
+                <p>You need JavaScript enabled to view this section.</p>
+            </noscript>
+
+            <h2 class="skills__title">Frontend</h2>
+            <ul class="list list__inline skills__list" id="frontend">
+                 <template id="template__frontend">
+                    <li class="list__item">
+                        <svg width="1.5rem" height="1.5rem">
+                            <use></use>
+                        </svg>
+                        <span class="list__span"></span>
+                    </li>
+                </template>
+            </ul>
+
+            <h2 class="skills__title">Design</h2>
+            <ul class="list list__inline skills__list" id="design">
+                <li class="list__item">UX</li>
+                <li class="list__item">UI</li>
+                <template id="template__design">
+                    <li class="list__item">
+                        <svg width="1.5rem" height="1.5rem">
+                            <use></use>
+                        </svg>
+                        <span class="list__span"></span>
+                    </li>
+                </template>
+            </ul>
+
+            <h2 class="skills__title">Platforms</h2>
+            <ul class="list list__inline skills__list" id="plataforms">
+                <template id="template__plataforms">
+                    <li class="list__item">
+                        <svg width="1.5rem" height="1.5rem">
+                            <use></use>
+                        </svg>
+                        <span class="list__span"></span>
+                    </li>
+                </template>
+            </ul>
+
+
+            <!-- Studying 
+            <h2 class="skills__title">Platforms</h2>
+            <ul class="list list__inline skills__backend">
+                <li class="list__item">NodeJs</li>
+                <li class="list__item">Rust</li>
+            </ul>
+            -->
+        </div>
+    </div>
+</section>
