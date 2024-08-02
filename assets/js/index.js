@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', ev => {
       }
 
       getHTML(
+        url,
         {
-          url: '/page/404.html',
+
           success: (html) => {
             $MAIN.innerHTML = html
           },
