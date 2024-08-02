@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', ev => {
       getHTML(
         url,
         {
-
           success: (html) => {
             $MAIN.innerHTML = html
           },
