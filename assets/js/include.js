@@ -15,19 +15,19 @@ export const getHTML = async (url, options) => {
     const html = await response.text();
     success(html);
 
-    executeScripts();
+    loadExternalScripts();
   } catch (err) {
     error(err.message);
   }
 };
 
 // TEST 
-const executeScripts = () => {
-  const scripts = document.querySelectorAll('script');
+const loadExternalScripts = () => {
+  const scripts = document.querySelectorAll('script[src]');
   scripts.forEach(script => {
     const newScript = document.createElement('script');
-    newScript.textContent = script.textContent;
+    newScript.src = script.src;
+    newScript.async = false; // Mantener el orden de ejecución
     document.body.appendChild(newScript);
-    document.body.removeChild(newScript); // Opcional: eliminar el script después de ejecutarlo
   });
 };
