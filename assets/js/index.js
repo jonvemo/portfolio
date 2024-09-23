@@ -38,12 +38,14 @@ document.addEventListener('DOMContentLoaded', ev => {
         {
           success: (html) => {
             $MAIN.innerHTML = html
+            executeScripts();
           },
           error: () => {
             const errorPageURL = '/page/404.html'
             getHTML(errorPageURL, {
               success: (html) => {
                 $MAIN.innerHTML = html
+                executeScripts();
               },
               error: (err) => {
                 $MAIN.innerHTML = `<h1>${err}</h1>`
