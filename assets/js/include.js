@@ -2,11 +2,7 @@ export const getHTML = async (url, options) => {
   const { success, error } = options;
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8'
-      }
-    });
+    const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -15,19 +11,7 @@ export const getHTML = async (url, options) => {
     const html = await response.text();
     success(html);
 
-    loadExternalScripts();
   } catch (err) {
     error(err.message);
   }
-};
-
-// TEST 
-export const loadExternalScripts = () => {
-  const scripts = document.querySelectorAll('script[src]');
-  scripts.forEach(script => {
-    const newScript = document.createElement('script');
-    newScript.src = script.src;
-    newScript.async = false; // Mantener el orden de ejecución
-    document.body.appendChild(newScript);
-  });
 };
