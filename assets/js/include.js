@@ -22,7 +22,7 @@ export const getHTML = async (url, options) => {
 };
 
 // TEST 
-const loadExternalScripts = () => {
+export const loadExternalScripts = () => {
   const scripts = document.querySelectorAll('script[src]');
   scripts.forEach(script => {
     const newScript = document.createElement('script');
