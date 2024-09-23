@@ -14,7 +14,20 @@ export const getHTML = async (url, options) => {
 
     const html = await response.text();
     success(html);
+
+    executeScripts();
   } catch (err) {
     error(err.message);
   }
+};
+
+// TEST 
+const executeScripts = () => {
+  const scripts = document.querySelectorAll('script');
+  scripts.forEach(script => {
+    const newScript = document.createElement('script');
+    newScript.textContent = script.textContent;
+    document.body.appendChild(newScript);
+    document.body.removeChild(newScript); // Opcional: eliminar el script después de ejecutarlo
+  });
 };
