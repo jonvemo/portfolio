@@ -1,12 +1,28 @@
-const VERSION = 4;
+const VERSION = 4.12;
 const CACHE_NAME = `CACHE-${VERSION}`;
 const CACHE_LIST = [
+	"/",
+	"/page/404.html",
+	"/page/projects.html",
+	"/page/contact.html",
 	"/assets/fonts/Nunito-Regular.woff2",
 	"/assets/fonts/Nunito-Bold.woff2",
 	"/assets/css/index.css",
+	"/assets/css/normalize.css",
+	"/assets/css/colors.css",
+	"/assets/css/typography.css",
+	"/assets/css/headings.css",
+	"/assets/css/links.css",
+	"/assets/css/btns.css",
+	"/assets/css/style.css",
 	"/assets/img/favicon/favicon.svg",
 	"/assets/img/favicon/google-touch-icon.png",
-	"/page/404.html",
+	"/assets/js/index.js",
+	"/assets/js/app.js",
+	"/assets/js/include.js",
+	"/assets/js/skills.js",
+	"/assets/js/social-links.js",
+	"/assets/js/error.js",
 ];
 
 self.addEventListener("install", (ev) => {
