@@ -17,7 +17,7 @@ const APP = {
   offline() {
     const $PROBABLY = document.getElementById('isOnOff')
     $PROBABLY.classList.add('isOnOff')
-    $PROBABLY.querySelector('use').setAttribute('href', `/assets/icon/icons.svg#offline`)
+    $PROBABLY.querySelector('use').setAttribute('href', '/assets/icon/icons.svg#offline')
 
     setTimeout(() => {
       $PROBABLY.classList.remove('isOnOff');
@@ -27,7 +27,7 @@ const APP = {
   online() {
     const $PROBABLY = document.getElementById('isOnOff')
     $PROBABLY.classList.add('isOnOff')
-    $PROBABLY.querySelector('use').setAttribute('href', `/assets/icon/icons.svg#online`)
+    $PROBABLY.querySelector('use').setAttribute('href', '/assets/icon/icons.svg#online')
 
     setTimeout(() => {
       $PROBABLY.classList.remove('isOnOff');
